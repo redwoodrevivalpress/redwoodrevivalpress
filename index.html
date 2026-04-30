@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Redwood Revival Press</title>
+<meta name="description" content="Redwood Revival Press — increasing access to the treasures of the past.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper:       #F4EAD5;
+    --paper-deep:  #EADFC1;
+    --paper-sink:  #E2D4B0;
+    --ink:         #2A1B10;
+    --ink-soft:    #6B5240;
+    --ink-faint:   #9C8873;
+    --coffee:      #5B2E0A;
+    --redwood:     #6E2A12;
+    --moss:        #5C6B4A;
+    --gold:        #B89E70;
+
+    --serif-display: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+    --serif-body:    'Cormorant Garamond', Georgia, serif;
+    --mono:          'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--serif-body);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 1.12rem;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 80px 48px 96px;
+  }
+  @media (max-width: 720px) {
+    main { padding: 56px 24px 72px; }
+  }
+
+  /* ─── Wordmark / hero ─── */
+  header.brand {
+    border-bottom: 0.5px solid var(--ink-faint);
+    padding-bottom: 56px;
+    margin-bottom: 56px;
+  }
+  .marque {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .marque .sep {
+    display: inline-block;
+    width: 18px; height: 1px;
+    background: var(--ink-faint);
+    margin: 0 14px 4px;
+    vertical-align: middle;
+  }
+  h1.wordmark {
+    font-family: var(--serif-display);
+    font-variation-settings: 'opsz' 144, 'wght' 380;
+    font-size: clamp(3rem, 7vw, 5.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    margin: 0 0 22px;
+  }
+  h1.wordmark em {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--redwood);
+  }
+  .tagline {
+    font-family: var(--serif-display);
+    font-variation-settings: 'opsz' 96, 'wght' 350;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+    line-height: 1.4;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin: 0;
+  }
+
+  /* ─── About ─── */
+  section.about p {
+    font-family: var(--serif-body);
+    font-size: 1.18rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 0 18px;
+  }
+  section.about p:first-of-type::first-letter {
+    font-family: var(--serif-display);
+    font-variation-settings: 'opsz' 144, 'wght' 400;
+    font-size: 4.6rem;
+    float: left;
+    line-height: 0.86;
+    margin: 6px 12px -4px 0;
+    color: var(--redwood);
+  }
+
+  /* ─── Section labels ─── */
+  .sec-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 80px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid var(--ink-faint);
+  }
+  h2.sec-title {
+    font-family: var(--serif-display);
+    font-variation-settings: 'opsz' 96, 'wght' 380;
+    font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+    line-height: 1.18;
+    letter-spacing: -0.005em;
+    margin: 0 0 32px;
+    max-width: 800px;
+  }
+  h2.sec-title em {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--redwood);
+  }
+
+  /* ─── Publication cards ─── */
+  ul.pubs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  ul.pubs li {
+    display: grid;
+    grid-template-columns: 130px 1fr auto;
+    gap: 28px;
+    align-items: baseline;
+    padding: 28px 0;
+    border-top: 0.5px solid var(--ink-faint);
+  }
+  ul.pubs li:last-child {
+    border-bottom: 0.5px solid var(--ink-faint);
+  }
+  .pub-status {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .pub-status.published { color: var(--moss); }
+  .pub-status.in-flight { color: var(--gold); }
+  .pub-title {
+    font-family: var(--serif-display);
+    font-variation-settings: 'opsz' 60, 'wght' 400;
+    font-size: 1.55rem;
+    line-height: 1.18;
+    color: var(--ink);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .pub-title em {
+    font-style: italic;
+  }
+  a.pub-title:hover {
+    color: var(--redwood);
+  }
+  .pub-author {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-soft);
+  }
+  .pub-blurb {
+    font-family: var(--serif-body);
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 8px 0 0;
+    max-width: 640px;
+  }
+  .pub-link {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--redwood);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--redwood);
+    padding-bottom: 1px;
+    white-space: nowrap;
+  }
+  .pub-link:hover {
+    color: var(--coffee);
+    border-bottom-color: var(--coffee);
+  }
+  @media (max-width: 720px) {
+    ul.pubs li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .pub-status { margin-bottom: 2px; }
+    .pub-link { margin-top: 8px; }
+  }
+
+  /* ─── Footer ─── */
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 0.5px solid var(--ink-faint);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 0.5px solid transparent;
+  }
+  footer a:hover {
+    color: var(--redwood);
+    border-bottom-color: var(--redwood);
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+  <header class="brand">
+    <div class="marque">an independent press<span class="sep"></span>established 2026</div>
+    <h1 class="wordmark">Redwood Revival <em>Press.</em></h1>
+    <p class="tagline">Increasing access to the treasures of the past.</p>
+  </header>
+
+  <section class="about">
+    <p>We publish recovered and re-examined work from earlier eras — autobiography, letters, classical rhetoric, regional history — and original scholarship that takes the long view of subjects most readers know only from their recent surface. Our aim is simple: bring the durable parts of the past forward in editions readers will actually open.</p>
+  </section>
+
+  <div class="sec-label">Catalogue</div>
+  <h2 class="sec-title">Published <em>and in flight.</em></h2>
+
+  <ul class="pubs">
+
+    <li>
+      <div class="pub-status published">Published</div>
+      <div>
+        <a class="pub-title" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">The World Is My Parish — <em>An Autobiographical Odyssey</em></a>
+        <div class="pub-author">a recovered autobiography</div>
+        <p class="pub-blurb">A first-person account of a life spent across continents and decades — the kind of long-arc personal history that does not get written today. Available now on Amazon Kindle.</p>
+      </div>
+      <a class="pub-link" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">Read on Amazon →</a>
+    </li>
+
+    <li>
+      <div class="pub-status published">Published</div>
+      <div>
+        <a class="pub-title" href="./coffee/">History of <em>Coffee.</em></a>
+        <div class="pub-author">a long-form genomic and historical companion</div>
+        <p class="pub-blurb">A field companion to the ancient relationship between humans and the world's most popular beverage — from the 15th-century written record to the 12,000-year-old domestication signature in the genome.</p>
+      </div>
+      <a class="pub-link" href="./coffee/">Read the dispatch →</a>
+    </li>
+
+    <li>
+      <div class="pub-status in-flight">In flight</div>
+      <div>
+        <span class="pub-title"><em>San Francisco</em> and Thereabout</span>
+        <div class="pub-author">a regional history in progress</div>
+        <p class="pub-blurb">A reconstruction of the Bay Area as it was, drawn from primary sources that have never been collected in one place.</p>
+      </div>
+      <span class="pub-link" style="color: var(--ink-faint); border-bottom-color: var(--ink-faint);">Coming soon</span>
+    </li>
+
+    <li>
+      <div class="pub-status in-flight">In flight</div>
+      <div>
+        <span class="pub-title">Aristotle's <em>Rhetoric.</em></span>
+        <div class="pub-author">a new edition</div>
+        <p class="pub-blurb">A fresh edition of the foundational text on persuasion — re-introduced for readers who have never been given a way in.</p>
+      </div>
+      <span class="pub-link" style="color: var(--ink-faint); border-bottom-color: var(--ink-faint);">Coming soon</span>
+    </li>
+
+  </ul>
+
+  <footer>
+    <span>© 2026 Redwood Revival Press</span>
+    <span><a href="mailto:hello@redwoodrevivalpress.com">hello@redwoodrevivalpress.com</a></span>
+  </footer>
+
+</main>
+
+</body>
+</html>

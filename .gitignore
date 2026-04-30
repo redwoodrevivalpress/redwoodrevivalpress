@@ -1,0 +1,6 @@
+.DS_Store
+*.bak
+*.bak.*
+.vscode/
+.idea/
+node_modules/
