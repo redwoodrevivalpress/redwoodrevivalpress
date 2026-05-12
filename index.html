@@ -337,24 +337,23 @@
   }
 
   /* ─── Publications grid ─── */
+  /* auto-fit means columns expand to fill until they hit the min size,
+     then break to a new row — avoids the cramped 2-up state at mid widths */
   .pubs {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
     gap: 4px;
     background: var(--rule);
     border: 1px solid var(--rule);
     margin: 0 0 80px;
-  }
-  @media (max-width: 880px) {
-    .pubs { grid-template-columns: 1fr; }
   }
 
   .pub {
     background: var(--bg);
     padding: 44px 40px 40px;
     display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 44px;
+    grid-template-columns: clamp(170px, 20vw, 220px) minmax(0, 1fr);
+    gap: clamp(28px, 3.5vw, 44px);
     position: relative;
     transition: background 0.2s;
     align-items: start;
@@ -473,13 +472,15 @@
   .pub-title {
     font-family: var(--display);
     font-variation-settings: 'opsz' 60, 'wght' 380;
-    font-size: clamp(1.4rem, 2.1vw, 1.7rem);
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
     line-height: 1.14;
     color: var(--ink);
     text-decoration: none;
     display: block;
     margin: 0 0 6px;
     letter-spacing: -0.008em;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .pub-title em {
     font-style: italic;
@@ -544,18 +545,18 @@
 
   @media (max-width: 720px) {
     .pub {
-      grid-template-columns: 160px 1fr;
-      gap: 26px;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 24px;
       padding: 30px 24px;
     }
-    .pub-title { font-size: 1.35rem; }
+    .pub-title { font-size: 1.3rem; }
   }
-  @media (max-width: 520px) {
+  @media (max-width: 480px) {
     .pub {
-      grid-template-columns: 1fr;
-      gap: 20px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 22px;
     }
-    .cover-slot, .placeholder { max-width: 220px; }
+    .cover-slot, .placeholder { max-width: 200px; }
   }
 
   /* ─── Footer ─── */
