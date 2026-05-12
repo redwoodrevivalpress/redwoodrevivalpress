@@ -166,6 +166,31 @@
     font-weight: 400;
     font-style: italic;
   }
+  .hero-imprint {
+    font-family: var(--display);
+    font-variation-settings: 'opsz' 36, 'wght' 360;
+    font-size: clamp(1.05rem, 1.55vw, 1.22rem);
+    line-height: 1.5;
+    color: var(--cream);
+    opacity: 0.84;
+    max-width: 560px;
+    margin: 32px 0 16px;
+    letter-spacing: -0.002em;
+  }
+  .hero-imprint em {
+    font-style: italic;
+    color: var(--gold);
+    font-variation-settings: 'opsz' 36, 'wght' 380;
+  }
+  .hero-sig {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.85;
+    margin: 0;
+  }
   @media (max-width: 880px) {
     .hero-inner { grid-template-columns: 1fr; gap: 36px; align-items: start; }
     header.hero { padding: 68px 0 72px; }
@@ -575,12 +600,18 @@
   </div>
 </div>
 
-<header class="hero">
+<header class="hero" id="about">
   <div class="hero-inner">
-    <h1 class="hero-mark">
-      Redwood
-      <span class="press">Revival Press.</span>
-    </h1>
+    <div>
+      <h1 class="hero-mark">
+        Redwood
+        <span class="press">Revival Press.</span>
+      </h1>
+      <p class="hero-imprint">
+        We publish recovered and re-examined work from earlier eras, and original scholarship that builds on these resources with <em>inter-disciplinary scientific analysis</em>.
+      </p>
+      <p class="hero-sig">A small independent press · Berkeley, California</p>
+    </div>
     <div>
       <div class="hero-rule"></div>
       <p class="hero-tagline">
@@ -591,16 +622,6 @@
 </header>
 
 <main>
-
-  <section class="manifesto" id="about">
-    <div class="manifesto-label">Imprint</div>
-    <div>
-      <p class="manifesto-body">
-        We publish recovered and re-examined work from earlier eras, and original scholarship that builds on these resources with <em>inter-disciplinary scientific analysis</em>.
-      </p>
-      <p class="manifesto-sig">A small independent press based in California.</p>
-    </div>
-  </section>
 
   <div class="sec-bar" id="catalogue">
     <div class="sec-num">№.01</div>
@@ -720,7 +741,7 @@
   </div>
   <div class="footer-bottom">
     <span>© 2026 Redwood Revival Press</span>
-    <span>Established MMXXVI · California</span>
+    <span>Established MMXXVI · Berkeley, California</span>
   </div>
 </footer>
 
