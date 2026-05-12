@@ -276,29 +276,36 @@
 
   .pub {
     background: var(--bg);
-    padding: 40px 36px 36px;
+    padding: 44px 40px 40px;
     display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 36px;
+    grid-template-columns: 220px 1fr;
+    gap: 44px;
     position: relative;
     transition: background 0.2s;
+    align-items: start;
   }
   .pub:hover { background: var(--bg-deep); }
 
-  /* actual book cover */
-  .cover {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
+  /* cover slot — holds the image (and shrinks to its natural shape) */
+  .cover-slot {
     display: block;
+    width: 100%;
+    line-height: 0;
+  }
+
+  /* actual book cover — natural aspect, no cropping */
+  .cover {
+    display: block;
+    width: 100%;
+    height: auto;
     box-shadow:
       0 1px 2px rgba(0,0,0,0.10),
-      4px 6px 14px rgba(0,0,0,0.16),
+      6px 8px 18px rgba(0,0,0,0.18),
       0 0 0 1px rgba(0,0,0,0.06);
     background: var(--bg-deep);
     transition: transform 0.25s ease;
   }
-  .pub:hover .cover { transform: translateY(-3px); }
+  .pub:hover .cover { transform: translateY(-4px); }
 
   /* typographic placeholder (in-flight, no cover yet) */
   .placeholder {
@@ -308,17 +315,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 22px 18px 18px;
+    padding: 26px 22px 22px;
     color: var(--cream);
     box-shadow:
       0 1px 2px rgba(0,0,0,0.10),
-      4px 6px 14px rgba(0,0,0,0.16);
+      6px 8px 18px rgba(0,0,0,0.18);
     font-family: var(--display);
     text-align: left;
     overflow: hidden;
     transition: transform 0.25s ease;
   }
-  .pub:hover .placeholder { transform: translateY(-3px); }
+  .pub:hover .placeholder { transform: translateY(-4px); }
   .placeholder::before {
     content: "";
     position: absolute;
@@ -462,18 +469,18 @@
 
   @media (max-width: 720px) {
     .pub {
-      grid-template-columns: 130px 1fr;
-      gap: 22px;
-      padding: 28px 22px;
+      grid-template-columns: 160px 1fr;
+      gap: 26px;
+      padding: 30px 24px;
     }
-    .pub-title { font-size: 1.4rem; }
+    .pub-title { font-size: 1.35rem; }
   }
   @media (max-width: 520px) {
     .pub {
       grid-template-columns: 1fr;
       gap: 20px;
     }
-    .cover, .placeholder { max-width: 200px; }
+    .cover-slot, .placeholder { max-width: 220px; }
   }
 
   /* ─── Footer ─── */
@@ -604,7 +611,7 @@
   <div class="pubs">
 
     <article class="pub">
-      <a href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener" aria-label="The World Is My Parish — paperback">
+      <a class="cover-slot" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener" aria-label="The World Is My Parish — paperback">
         <img class="cover" src="./covers/parish-paperback.jpg" alt="The World Is My Parish cover" loading="lazy" width="334" height="500">
       </a>
       <div class="pub-body">
@@ -624,7 +631,7 @@
     </article>
 
     <article class="pub">
-      <a href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler/dp/B0GZHT8DC8/" target="_blank" rel="noopener" aria-label="San Francisco and Thereabout — paperback">
+      <a class="cover-slot" href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler/dp/B0GZHT8DC8/" target="_blank" rel="noopener" aria-label="San Francisco and Thereabout — paperback">
         <img class="cover" src="./covers/sf-paperback.jpg" alt="San Francisco and Thereabout cover" loading="lazy" width="313" height="500">
       </a>
       <div class="pub-body">
