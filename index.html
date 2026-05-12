@@ -276,80 +276,86 @@
 
   .pub {
     background: var(--bg);
-    padding: 36px 32px 32px;
+    padding: 40px 36px 36px;
     display: grid;
-    grid-template-columns: 96px 1fr;
-    gap: 28px;
+    grid-template-columns: 160px 1fr;
+    gap: 36px;
     position: relative;
     transition: background 0.2s;
   }
   .pub:hover { background: var(--bg-deep); }
 
-  /* book-spine visual identifier */
-  .spine {
-    width: 80px;
-    height: 200px;
+  /* actual book cover */
+  .cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.10),
+      4px 6px 14px rgba(0,0,0,0.16),
+      0 0 0 1px rgba(0,0,0,0.06);
+    background: var(--bg-deep);
+    transition: transform 0.25s ease;
+  }
+  .pub:hover .cover { transform: translateY(-3px); }
+
+  /* typographic placeholder (in-flight, no cover yet) */
+  .placeholder {
+    aspect-ratio: 2 / 3;
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 14px 10px;
+    padding: 22px 18px 18px;
     color: var(--cream);
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.18), 4px 4px 8px rgba(0,0,0,0.08);
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.10),
+      4px 6px 14px rgba(0,0,0,0.16);
     font-family: var(--display);
-    text-align: center;
+    text-align: left;
     overflow: hidden;
+    transition: transform 0.25s ease;
   }
-  .spine::before {
+  .pub:hover .placeholder { transform: translateY(-3px); }
+  .placeholder::before {
     content: "";
     position: absolute;
     top: 0; bottom: 0;
     left: 0;
-    width: 4px;
+    width: 6px;
     background: rgba(0,0,0,0.22);
   }
-  .spine::after {
-    content: "";
-    position: absolute;
-    top: 0; bottom: 0;
-    right: 4px;
-    width: 1px;
-    background: rgba(255,255,255,0.12);
-  }
-  .spine-title {
-    font-variation-settings: 'opsz' 36, 'wght' 500;
-    font-size: 0.84rem;
-    line-height: 1.12;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    align-self: center;
-    letter-spacing: 0.04em;
-    margin: 4px 0;
-    height: 130px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .spine-mark {
+  .placeholder-mark {
     font-family: var(--mono);
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     letter-spacing: 0.18em;
     opacity: 0.75;
     text-transform: uppercase;
   }
-  .spine-year {
+  .placeholder-title {
+    font-family: var(--display);
+    font-variation-settings: 'opsz' 60, 'wght' 380;
+    font-size: 1.15rem;
+    line-height: 1.18;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  .placeholder-title em { font-style: italic; }
+  .placeholder-year {
     font-family: var(--display);
     font-style: italic;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     opacity: 0.85;
   }
 
-  /* per-pub spine colors */
-  .spine.redwood { background: var(--redwood); }
-  .spine.moss    { background: var(--moss); }
-  .spine.gold    { background: var(--gold); color: var(--ink); }
-  .spine.gold::before { background: rgba(0,0,0,0.18); }
-  .spine.indigo  { background: var(--indigo); }
+  /* per-pub placeholder colors */
+  .placeholder.redwood { background: var(--redwood); }
+  .placeholder.moss    { background: var(--moss); }
+  .placeholder.gold    { background: var(--gold); color: var(--ink); }
+  .placeholder.gold::before { background: rgba(0,0,0,0.16); }
+  .placeholder.indigo  { background: var(--indigo); }
 
   .pub-body { min-width: 0; }
   .pub-meta {
@@ -456,15 +462,18 @@
 
   @media (max-width: 720px) {
     .pub {
-      grid-template-columns: 1fr;
-      gap: 24px;
+      grid-template-columns: 130px 1fr;
+      gap: 22px;
       padding: 28px 22px;
     }
-    .spine {
-      width: 64px;
-      height: 156px;
-    }
     .pub-title { font-size: 1.4rem; }
+  }
+  @media (max-width: 520px) {
+    .pub {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .cover, .placeholder { max-width: 200px; }
   }
 
   /* ─── Footer ─── */
@@ -595,37 +604,35 @@
   <div class="pubs">
 
     <article class="pub">
-      <div class="spine moss">
-        <span class="spine-mark">RRP · 001</span>
-        <span class="spine-title">The World Is My Parish</span>
-        <span class="spine-year">1951</span>
-      </div>
+      <a href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener" aria-label="The World Is My Parish — paperback">
+        <img class="cover" src="./covers/parish-paperback.jpg" alt="The World Is My Parish cover" loading="lazy" width="334" height="500">
+      </a>
       <div class="pub-body">
         <div class="pub-meta">
           <span class="pub-status published">Published</span>
-          <span class="pub-format">Kindle</span>
+          <span class="pub-format">Paperback &middot; Hardcover &middot; Kindle</span>
         </div>
-        <a class="pub-title" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">The World Is My Parish: <em>An Autobiographical Odyssey</em></a>
+        <a class="pub-title" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener">The World Is My Parish: <em>An Autobiographical Odyssey</em></a>
         <div class="pub-author">Loyal Lincoln Wirt, D.D.</div>
         <p class="pub-blurb">A pioneer minister's first-person record of eighty years and four continents. From the American West and the Alaska gold rush to Australia, England, India, Turkey, and Siam, with two world wars in between.</p>
         <div class="pub-actions">
-          <a class="pub-link primary" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">Buy on Amazon</a>
+          <a class="pub-link primary" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener">Paperback</a>
+          <a class="pub-link" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DLKP9MS3/" target="_blank" rel="noopener">Hardcover</a>
+          <a class="pub-link" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">Kindle</a>
         </div>
       </div>
     </article>
 
     <article class="pub">
-      <div class="spine redwood">
-        <span class="spine-mark">RRP · 002</span>
-        <span class="spine-title">San Francisco &amp; Thereabout</span>
-        <span class="spine-year">1902</span>
-      </div>
+      <a href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler/dp/B0GZHT8DC8/" target="_blank" rel="noopener" aria-label="San Francisco and Thereabout — paperback">
+        <img class="cover" src="./covers/sf-paperback.jpg" alt="San Francisco and Thereabout cover" loading="lazy" width="313" height="500">
+      </a>
       <div class="pub-body">
         <div class="pub-meta">
           <span class="pub-status published">Published</span>
           <span class="pub-format">Paperback &middot; Kindle</span>
         </div>
-        <span class="pub-title"><em>San Francisco</em> and Thereabout</span>
+        <a class="pub-title" href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler/dp/B0GZHT8DC8/" target="_blank" rel="noopener"><em>San Francisco</em> and Thereabout</a>
         <div class="pub-author">Charles Keeler</div>
         <p class="pub-blurb">Charles Keeler's portrait of San Francisco, published four years before the 1906 earthquake destroyed most of what he describes. Spanish padres and Gold Rush argonauts through the Barbary Coast, Chinatown, and the Golden Gate. A city captured just before it vanished.</p>
         <div class="pub-actions">
@@ -636,11 +643,13 @@
     </article>
 
     <article class="pub">
-      <div class="spine indigo">
-        <span class="spine-mark">RRP · 003</span>
-        <span class="spine-title">History of Coffee</span>
-        <span class="spine-year">2026</span>
-      </div>
+      <a href="./coffee/" aria-label="History of Coffee — dispatch">
+        <div class="placeholder indigo">
+          <span class="placeholder-mark">RRP · 003 · in flight</span>
+          <p class="placeholder-title">History of <em>Coffee.</em></p>
+          <span class="placeholder-year">MMXXVI</span>
+        </div>
+      </a>
       <div class="pub-body">
         <div class="pub-meta">
           <span class="pub-status in-flight">In flight</span>
@@ -656,10 +665,10 @@
     </article>
 
     <article class="pub">
-      <div class="spine gold">
-        <span class="spine-mark">RRP · 004</span>
-        <span class="spine-title">Aristotle's Rhetoric</span>
-        <span class="spine-year">2026</span>
+      <div class="placeholder gold">
+        <span class="placeholder-mark">RRP · 004 · in flight</span>
+        <p class="placeholder-title">Aristotle's <em>Rhetoric.</em></p>
+        <span class="placeholder-year">MMXXVI</span>
       </div>
       <div class="pub-body">
         <div class="pub-meta">
