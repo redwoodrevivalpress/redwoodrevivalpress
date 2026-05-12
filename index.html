@@ -134,31 +134,47 @@
     margin: 0 auto;
     padding: 0 36px;
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 80px;
-    align-items: end;
-  }
-  .hero-brand {
-    display: flex;
+    grid-template-columns: auto 1fr;
+    column-gap: clamp(28px, 4vw, 56px);
+    row-gap: clamp(36px, 4.5vw, 60px);
     align-items: center;
-    gap: clamp(20px, 3vw, 36px);
   }
-  .hero-brand-text { min-width: 0; }
   .hero-logo {
-    width: clamp(110px, 14vw, 180px);
+    grid-column: 1;
+    grid-row: 1;
+    width: clamp(120px, 16vw, 220px);
     height: auto;
     display: block;
-    flex-shrink: 0;
     opacity: 0.96;
+  }
+  .hero-brand-text {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+  .hero-deck {
+    grid-column: 2;
+    grid-row: 2;
+    max-width: 720px;
+  }
+  @media (max-width: 720px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-logo, .hero-brand-text, .hero-deck {
+      grid-column: 1;
+    }
+    .hero-logo { grid-row: 1; }
+    .hero-brand-text { grid-row: 2; }
+    .hero-deck { grid-row: 3; }
   }
   .hero-mark {
     font-family: var(--display);
     font-variation-settings: 'opsz' 144, 'wght' 320;
-    font-size: clamp(3.4rem, 8vw, 7.6rem);
-    line-height: 0.92;
+    font-size: clamp(3.2rem, 8.2vw, 7.6rem);
+    line-height: 0.94;
     letter-spacing: -0.025em;
     margin: 0;
     color: var(--cream);
+    white-space: nowrap;
   }
   .hero-mark .ampersand {
     font-style: italic;
@@ -646,19 +662,15 @@
 
 <header class="hero" id="about">
   <div class="hero-inner">
-    <div>
-      <div class="hero-brand">
-        <img class="hero-logo" src="./assets/logo-light.png" alt="Redwood Revival Press emblem" width="180" height="192">
-        <div class="hero-brand-text">
-          <h1 class="hero-mark">
-            Redwood
-            <span class="press">Revival Press.</span>
-          </h1>
-        </div>
-      </div>
+    <img class="hero-logo" src="./assets/logo-light.png" alt="Redwood Revival Press emblem" width="220" height="234">
+    <div class="hero-brand-text">
+      <h1 class="hero-mark">
+        Redwood&nbsp;Revival
+        <span class="press">Press.</span>
+      </h1>
       <p class="hero-sig">A small independent press · Berkeley, California</p>
     </div>
-    <div>
+    <div class="hero-deck">
       <div class="hero-rule"></div>
       <p class="hero-tagline">
         We specialize in <strong>cover-to-cover restoration</strong> and <strong>modern adaptation</strong> of classic and forgotten books.
