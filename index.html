@@ -138,11 +138,17 @@
     gap: 80px;
     align-items: end;
   }
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 3vw, 36px);
+  }
+  .hero-brand-text { min-width: 0; }
   .hero-logo {
-    width: clamp(96px, 11vw, 140px);
+    width: clamp(110px, 14vw, 180px);
     height: auto;
     display: block;
-    margin: 0 0 28px;
+    flex-shrink: 0;
     opacity: 0.96;
   }
   .hero-mark {
@@ -641,11 +647,15 @@
 <header class="hero" id="about">
   <div class="hero-inner">
     <div>
-      <img class="hero-logo" src="./assets/logo-light.png" alt="Redwood Revival Press emblem" width="140" height="149">
-      <h1 class="hero-mark">
-        Redwood
-        <span class="press">Revival Press.</span>
-      </h1>
+      <div class="hero-brand">
+        <img class="hero-logo" src="./assets/logo-light.png" alt="Redwood Revival Press emblem" width="180" height="192">
+        <div class="hero-brand-text">
+          <h1 class="hero-mark">
+            Redwood
+            <span class="press">Revival Press.</span>
+          </h1>
+        </div>
+      </div>
       <p class="hero-sig">A small independent press · Berkeley, California</p>
     </div>
     <div>
