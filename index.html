@@ -138,10 +138,10 @@
   }
   .hero-mark .press {
     display: block;
-    font-style: italic;
-    font-variation-settings: 'opsz' 144, 'wght' 280;
-    color: var(--redwood);
-    letter-spacing: -0.02em;
+    font-style: normal;
+    font-variation-settings: 'opsz' 144, 'wght' 320;
+    color: var(--cream);
+    letter-spacing: -0.025em;
     margin-top: -0.08em;
   }
   .hero-rule {
@@ -158,8 +158,13 @@
     line-height: 1.42;
     color: var(--cream);
     opacity: 0.86;
-    max-width: 480px;
+    max-width: 520px;
     margin: 0;
+  }
+  .hero-tagline.secondary {
+    margin-top: 18px;
+    opacity: 0.72;
+    font-size: clamp(1.02rem, 1.55vw, 1.22rem);
   }
   .hero-tagline strong {
     color: var(--gold);
@@ -189,7 +194,7 @@
     text-transform: uppercase;
     color: var(--gold);
     opacity: 0.85;
-    margin: 0;
+    margin: 28px 0 0;
   }
   @media (max-width: 880px) {
     .hero-inner { grid-template-columns: 1fr; gap: 36px; align-items: start; }
@@ -532,7 +537,7 @@
     letter-spacing: -0.015em;
     margin: 0 0 12px;
   }
-  .footer-mark .press { color: var(--redwood); font-style: italic; font-weight: 320; }
+  .footer-mark .press { color: var(--cream); font-style: normal; font-weight: 380; }
   .footer-tagline {
     font-family: var(--display);
     font-style: italic;
@@ -607,15 +612,15 @@
         Redwood
         <span class="press">Revival Press.</span>
       </h1>
-      <p class="hero-imprint">
-        We publish recovered and re-examined work from earlier eras, and original scholarship that builds on these resources with <em>inter-disciplinary scientific analysis</em>.
-      </p>
       <p class="hero-sig">A small independent press · Berkeley, California</p>
     </div>
     <div>
       <div class="hero-rule"></div>
       <p class="hero-tagline">
         We specialize in <strong>cover-to-cover restoration</strong> and <strong>modern adaptation</strong> of classic and forgotten books.
+      </p>
+      <p class="hero-tagline secondary">
+        We are also developing <strong>original scholarship</strong> that builds on these resources with <strong>inter-disciplinary scientific analysis</strong>.
       </p>
     </div>
   </div>
