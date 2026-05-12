@@ -10,6 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
+<link rel="icon" type="image/png" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/logo-dark.png">
+
 <style>
   :root {
     /* warm bone background; not yellow-beige */
@@ -71,6 +74,19 @@
     color: var(--ink-soft);
     font-weight: 500;
   }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .topbar-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+  }
   .topbar-inner .colophon { display: flex; gap: 22px; }
   .topbar-inner a {
     text-decoration: none;
@@ -121,6 +137,13 @@
     grid-template-columns: 1.15fr 1fr;
     gap: 80px;
     align-items: end;
+  }
+  .hero-logo {
+    width: clamp(96px, 11vw, 140px);
+    height: auto;
+    display: block;
+    margin: 0 0 28px;
+    opacity: 0.96;
   }
   .hero-mark {
     font-family: var(--display);
@@ -528,6 +551,13 @@
     grid-template-columns: 1.4fr 1fr 1fr;
     gap: 56px;
   }
+  .footer-logo {
+    width: 56px;
+    height: auto;
+    display: block;
+    margin: 0 0 18px;
+    opacity: 0.92;
+  }
   .footer-mark {
     font-family: var(--display);
     font-variation-settings: 'opsz' 96, 'wght' 380;
@@ -596,7 +626,10 @@
 
 <div class="topbar">
   <div class="topbar-inner">
-    <span>Redwood Revival Press</span>
+    <a class="topbar-brand" href="/">
+      <img class="topbar-logo" src="./assets/logo-dark.png" alt="" width="28" height="28">
+      <span>Redwood Revival Press</span>
+    </a>
     <div class="colophon">
       <a href="#catalogue">Catalogue</a>
       <a href="#about">About</a>
@@ -608,6 +641,7 @@
 <header class="hero" id="about">
   <div class="hero-inner">
     <div>
+      <img class="hero-logo" src="./assets/logo-light.png" alt="Redwood Revival Press emblem" width="140" height="149">
       <h1 class="hero-mark">
         Redwood
         <span class="press">Revival Press.</span>
@@ -724,6 +758,7 @@
 <footer>
   <div class="footer-inner">
     <div>
+      <img class="footer-logo" src="./assets/logo-light.png" alt="" width="56" height="60">
       <h3 class="footer-mark">Redwood <span class="press">Revival Press.</span></h3>
       <p class="footer-tagline">Cover-to-cover restoration and modern adaptation of classic and forgotten books.</p>
     </div>
