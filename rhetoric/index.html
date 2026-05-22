@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aristotle's Rhetoric · Redwood Revival Press</title>
-<meta name="description" content="A source-aligned preview of Aristotle's Rhetoric with Greek source, literal translation, modernized translation, and Freese.">
+<meta name="description" content="A source-aligned preview of Aristotle's Rhetoric with Greek source, literal translation, adapted translation, modernized translation, and Freese 1926.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@ h1{font-family:var(--display);font-weight:360;font-size:clamp(2.6rem,5vw,5.8rem)
 button{font-family:var(--sans);font-weight:700;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px 10px;cursor:pointer}
 button:hover:not(:disabled),button.active{background:var(--ink);color:var(--cream)}
 button:disabled{opacity:.35;cursor:default}
-.dev-controls{display:none;justify-content:flex-end;gap:7px;flex-wrap:wrap}.mode-dev .dev-controls{display:flex}
+.dev-controls{display:flex;justify-content:flex-end;gap:7px;flex-wrap:wrap}
 .toggle{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}.toggle.off{opacity:.48;text-decoration:line-through}
 .dev-meta{display:none;max-width:1480px;margin:0 auto;padding:8px 28px 0;font:500 .68rem var(--mono);letter-spacing:.08em;color:var(--ink-faint)}.mode-dev .dev-meta{display:block}
 main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
@@ -59,11 +59,13 @@ main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
 .source .text{font-size:1.08rem;line-height:1.72}.modernized .text{border-left-color:var(--redwood)}.canonical .text{border-left-color:var(--indigo)}
 .quality{display:none;margin-top:8px;gap:6px;flex-wrap:wrap}.mode-dev .quality{display:flex}.pill{font:700 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(43,36,24,.35);padding:3px 6px;color:var(--ink-soft);background:rgba(248,243,230,.6)}
 .footnotes{margin:12px 0 0;padding:10px 12px;border-left:1px solid var(--rule);background:rgba(232,223,203,.42);font-size:.92rem;color:var(--ink-soft)}
+.col .footnotes{font-size:.86rem;background:rgba(232,223,203,.34)}
 .footnotes div+div{margin-top:5px}.fn-num{font-family:var(--mono);font-size:.68rem;color:var(--redwood);margin-right:6px}
 .feedback{margin-top:12px}.feedback summary{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(43,36,24,.45);padding:7px 10px;font:700 .68rem var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;user-select:none;background:rgba(248,243,230,.65)}
 .feedback summary::-webkit-details-marker{display:none}.feedback summary:hover,.feedback[open] summary{background:var(--ink);color:var(--cream)}
-.feedback-body{margin-top:8px;display:grid;grid-template-columns:auto auto minmax(180px,1fr) auto;gap:8px;align-items:center}
+.feedback-body{margin-top:8px;display:grid;grid-template-columns:auto auto minmax(180px,1fr) auto minmax(90px,auto);gap:8px;align-items:center}
 .feedback button{padding:7px 9px}.feedback textarea{min-height:38px;resize:vertical;border:1px solid rgba(43,36,24,.35);background:var(--cream);padding:8px 9px;font:400 .88rem var(--sans);color:var(--ink)}
+.feedback-status{font:700 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 .mode-dev .feedback{display:none}
 .grk{border-bottom:1px dotted rgba(122,35,23,.55);cursor:help}.grk:hover,.grk:focus{background:rgba(176,125,42,.18);outline:none}
 #tooltip{position:fixed;display:none;z-index:50;max-width:360px;background:#17130F;color:var(--cream);padding:13px 14px;box-shadow:0 12px 38px rgba(0,0,0,.25);border:1px solid rgba(248,243,230,.2)}
@@ -77,7 +79,7 @@ footer{border-top:1px solid var(--ink);padding:28px;color:var(--ink-soft);font:5
 </head>
 <body class="mode-public">
 <div class="topbar"><div class="topbar-inner"><a class="brand" href="../"><img src="../assets/logo-dark.png" alt=""><span>Redwood Revival Press</span></a><nav class="nav"><a href="../">Catalogue</a><a href="mailto:cyrus@redwoodrevivalpress.com">Contact</a></nav></div></div>
-<header class="mast"><div><p class="eyebrow">Translation Preview</p><h1>Aristotle's <em>Rhetoric.</em></h1></div><p class="dek">Greek source, final literal translation, modernized Redwood translation, and the canonical Freese text aligned passage by passage.</p></header>
+<header class="mast"><div><p class="eyebrow">Translation Preview</p><h1>Aristotle's <em>Rhetoric.</em></h1></div><p class="dek">Greek source, literal translation, adapted Redwood translation, modernized Redwood translation, and Freese 1926 aligned passage by passage.</p></header>
 <section class="tools"><div class="tools-inner"><div class="search"><input id="search" type="search" placeholder="Search passages" autocomplete="off"></div><div class="search-nav"><button id="prevMatch" aria-label="Previous match">↑</button><span id="matchCount">0 / 0</span><button id="nextMatch" aria-label="Next match">↓</button></div><div class="dev-controls" id="devControls"></div></div><div class="dev-meta" id="devMeta"></div></section>
 <main id="app"></main><div id="tooltip"></div>
 <footer>© 2026 Redwood Revival Press · Berkeley, California</footer>
@@ -91,10 +93,10 @@ document.body.className = MODE === "dev" ? "mode-dev" : "mode-public";
 const COLUMNS = {
   source: "Source",
   draftLiteral: "Draft literal",
-  finalLiteral: "Final literal",
+  finalLiteral: "Literal",
   adapted: "Adapted",
   modernized: "Modernized",
-  canonical: "Canonical"
+  canonical: DATA.book.canonicalLabel || "Freese 1926"
 };
 let visibleColumns = new Set(MODE === "dev" ? DATA.defaults.devColumns : DATA.defaults.publicColumns);
 let passageEls = [];
@@ -118,11 +120,11 @@ function render() {
   const app = document.getElementById("app");
   if (!DATA.chapters.length) { app.innerHTML = `<div class="empty">No modernized passages available.</div>`; return; }
   app.innerHTML = DATA.chapters.map((ch, ci) => `
-    <section class="chapter" id="${escapeHtml(ch.id)}">
+    <section class="chapter collapsed" id="${escapeHtml(ch.id)}">
       <div class="chapter-head">
-        <div class="chapter-num">Section ${ci + 1}</div>
+        <div class="chapter-num">Section ${escapeHtml(ch.sectionNumber || ci + 1)}</div>
         <h2>${escapeHtml(ch.title)}</h2>
-        <button class="chapter-toggle" aria-expanded="true" aria-controls="${escapeHtml(ch.id)}-body" aria-label="Collapse section" title="Collapse section">−</button>
+        <button class="chapter-toggle" aria-expanded="false" aria-controls="${escapeHtml(ch.id)}-body" aria-label="Expand section" title="Expand section">+</button>
       </div>
       <div class="chapter-body" id="${escapeHtml(ch.id)}-body">${ch.passages.map(p => renderPassage(p, ch)).join("")}</div>
     </section>`).join("");
@@ -135,13 +137,17 @@ function renderPassage(p, chapter) {
     const body = key === "source" ? tokenizeGreek(val) : fnrefs(val);
     const quality = MODE === "dev" && key === "modernized" && p.quality?.modernization
       ? `<div class="quality">${qualityPills(p.quality.modernization)}</div>` : "";
-    return `<div class="col ${key}" data-col="${key}"><div class="label">${COLUMNS[key]}</div><div class="text">${body || "<em>not available</em>"}</div>${quality}</div>`;
+    return `<div class="col ${key}" data-col="${key}"><div class="label">${COLUMNS[key]}</div><div class="text">${body || "<em>not available</em>"}</div>${columnFootnotes(p, key)}${quality}</div>`;
   }).join("");
-  const fns = (p.footnotes || []).length ? `<div class="footnotes">${p.footnotes.map(fn => `<div><span class="fn-num">${escapeHtml(fn.num)}</span>${escapeHtml(fn.text || "")}</div>`).join("")}</div>` : "";
   return `<article class="passage" id="${escapeHtml(p.id)}" data-passage="${escapeHtml(p.id)}" data-search="${escapeHtml(searchTextFor(p, chapter))}">
     <div class="passage-head"><div class="pid">${escapeHtml(p.id)} · page ${escapeHtml(p.page)}</div></div>
-    <div class="grid">${cols}</div>${fns}${feedbackHtml(p)}
+    <div class="grid">${cols}</div>${feedbackHtml(p)}
   </article>`;
+}
+function columnFootnotes(p, key) {
+  const notes = key === "adapted" ? p.adaptedFootnotes : key === "modernized" ? p.modernizedFootnotes : [];
+  if (!notes || !notes.length) return "";
+  return `<div class="footnotes">${notes.map(fn => `<div><span class="fn-num">${escapeHtml(fn.num)}</span>${escapeHtml(fn.text || "")}</div>`).join("")}</div>`;
 }
 function searchTextFor(p, chapter) {
   const keys = MODE === "dev" ? Object.keys(COLUMNS) : DATA.defaults.publicColumns;
@@ -164,8 +170,80 @@ function feedbackHtml(p) {
       <button data-vote="down" aria-label="Thumbs down">&#128078;</button>
       <textarea placeholder="Note" aria-label="Feedback note"></textarea>
       <button class="send">Send</button>
+      <span class="feedback-status" role="status" aria-live="polite"></span>
     </div>
   </details>`;
+}
+function feedbackConfig() {
+  const cfg = DATA.feedback || {};
+  if (cfg.provider !== "supabase" || !cfg.supabaseUrl || !cfg.supabaseAnonKey) return null;
+  return {
+    url: String(cfg.supabaseUrl).replace(/\/$/, ""),
+    key: cfg.supabaseAnonKey,
+    table: cfg.table || "translation_feedback"
+  };
+}
+async function submitFeedback(box) {
+  const cfg = feedbackConfig();
+  const status = box.querySelector(".feedback-status");
+  const send = box.querySelector(".send");
+  if (!cfg) {
+    status.textContent = "Not configured";
+    return;
+  }
+  const p = DATA.chapters.flatMap(ch => ch.passages).find(x => x.id === box.dataset.feedback);
+  const chapter = DATA.chapters.find(ch => ch.passages.some(x => x.id === box.dataset.feedback));
+  const voteValue = box.dataset.vote || "unspecified";
+  const note = box.querySelector("textarea").value.trim();
+  const version = DATA.version || {};
+  const payload = {
+    book: DATA.book.title,
+    passage_id: p.id,
+    page_number: p.page,
+    block_index: p.block,
+    vote: voteValue,
+    note,
+    website_version: version.websiteVersion || "",
+    feedback_round: version.feedbackRound || "",
+    content_hash: version.contentHash || "",
+    site_revision: version.siteRevision || "",
+    generator_revision: version.generatorRevision || "",
+    build_generated_at: version.generatedAt || DATA.generatedAt || null,
+    url: location.href,
+    user_agent: navigator.userAgent,
+    context: {
+      version,
+      section_title: chapter?.title || "",
+      visible_columns: [...visibleColumns],
+      source: p.source || "",
+      literal: p.finalLiteral || "",
+      adapted: p.adapted || "",
+      modernized: p.modernized || "",
+      freese_1926: p.canonical || ""
+    }
+  };
+  status.textContent = "Saving";
+  send.disabled = true;
+  try {
+    const response = await fetch(`${cfg.url}/rest/v1/${encodeURIComponent(cfg.table)}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "apikey": cfg.key,
+        "authorization": `Bearer ${cfg.key}`,
+        "prefer": "return=minimal"
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    status.textContent = "Saved";
+    box.querySelector("textarea").value = "";
+  } catch (err) {
+    status.textContent = "Save failed";
+    console.error("Feedback save failed", err);
+  } finally {
+    send.disabled = false;
+  }
 }
 function syncColumns() {
   const count = [...visibleColumns].length || 1;
@@ -176,8 +254,8 @@ function syncColumns() {
   if (input?.value.trim()) runSearch(0);
 }
 function setupDevControls() {
-  if (MODE !== "dev") return;
-  document.getElementById("devControls").innerHTML = Object.entries(COLUMNS).map(([key,label]) => `<button class="toggle" data-col="${key}">${label}</button>`).join("");
+  const keys = MODE === "dev" ? DATA.defaults.devColumns : DATA.defaults.publicColumns;
+  document.getElementById("devControls").innerHTML = keys.map(key => `<button class="toggle" data-col="${key}">${COLUMNS[key]}</button>`).join("");
   document.getElementById("devControls").addEventListener("click", ev => {
     const btn = ev.target.closest(".toggle"); if (!btn) return;
     visibleColumns.has(btn.dataset.col) ? visibleColumns.delete(btn.dataset.col) : visibleColumns.add(btn.dataset.col);
@@ -303,12 +381,7 @@ document.addEventListener("click", ev => {
   const send = ev.target.closest(".send");
   if (send) {
     const box = send.closest(".feedback");
-    const p = DATA.chapters.flatMap(ch => ch.passages).find(x => x.id === box.dataset.feedback);
-    const voteValue = box.dataset.vote || "unspecified";
-    const note = box.querySelector("textarea").value.trim();
-    const subject = encodeURIComponent(`Rhetoric feedback · ${p.id} · ${voteValue}`);
-    const body = encodeURIComponent(`Passage: ${p.id}\nPage: ${p.page}\nVote: ${voteValue}\n\nNote:\n${note}\n\nModernized passage:\n${p.modernized}`);
-    location.href = `mailto:${DATA.book.contactEmail}?subject=${subject}&body=${body}`;
+    submitFeedback(box);
   }
 });
 setupDevControls();
