@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aristotle's Rhetoric · Redwood Revival Press</title>
+<meta name="description" content="A source-aligned preview of Aristotle's Rhetoric with Greek source, literal translation, modernized translation, and Freese.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<style>
+:root {
+  --bg:#F2EDE1; --bg-deep:#E8DFCB; --ink:#14110D; --ink-soft:#4D4538;
+  --ink-faint:#847962; --rule:#C9B98D; --redwood:#7A2317;
+  --redwood-dark:#54180F; --moss:#2F4A38; --gold:#B07D2A;
+  --indigo:#283358; --cream:#F8F3E6; --display:'Fraunces','Newsreader',Georgia,serif;
+  --body:'Newsreader',Georgia,serif; --sans:'Space Grotesk',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.06rem;line-height:1.58;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.42;background-image:radial-gradient(circle at 1px 1px,rgba(80,62,28,.04) 1px,transparent 0);background-size:4px 4px}
+a{color:inherit}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(242,237,225,.96);border-bottom:1px solid var(--ink);backdrop-filter:blur(8px)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-family:var(--sans);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}.brand img{width:28px;height:28px}.nav{display:flex;gap:18px;flex-wrap:wrap}.nav a{text-decoration:none}.nav a:hover{color:var(--redwood)}
+.mast{max-width:1480px;margin:0 auto;padding:34px 28px 24px;display:grid;grid-template-columns:minmax(280px,470px) 1fr;gap:28px;align-items:end;border-bottom:1px solid rgba(43,36,24,.16)}
+.eyebrow{font-family:var(--mono);font-size:.67rem;letter-spacing:.26em;text-transform:uppercase;color:var(--redwood);margin:0 0 8px}
+h1{font-family:var(--display);font-weight:360;font-size:clamp(2.6rem,5vw,5.8rem);line-height:.93;letter-spacing:0;margin:0}
+.dek{font-size:1.15rem;max-width:680px;color:var(--ink-soft);margin:0}
+.tools{position:sticky;top:53px;z-index:18;background:rgba(232,223,203,.97);border-bottom:1px solid rgba(43,36,24,.22)}
+.tools-inner{max-width:1480px;margin:0 auto;padding:12px 28px;display:grid;grid-template-columns:minmax(260px,520px) auto 1fr;gap:12px;align-items:center}
+.search{display:flex;align-items:center;border:1px solid var(--ink);background:var(--cream)}
+.search input{width:100%;border:0;background:transparent;padding:10px 12px;font:600 .88rem var(--sans);color:var(--ink);outline:none}
+.search-nav{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft)}
+button{font-family:var(--sans);font-weight:700;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px 10px;cursor:pointer}
+button:hover:not(:disabled),button.active{background:var(--ink);color:var(--cream)}
+button:disabled{opacity:.35;cursor:default}
+.dev-controls{display:none;justify-content:flex-end;gap:7px;flex-wrap:wrap}.mode-dev .dev-controls{display:flex}
+.toggle{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}.toggle.off{opacity:.48;text-decoration:line-through}
+.dev-meta{display:none;max-width:1480px;margin:0 auto;padding:8px 28px 0;font:500 .68rem var(--mono);letter-spacing:.08em;color:var(--ink-faint)}.mode-dev .dev-meta{display:block}
+main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
+.chapter{margin:0 0 42px}.chapter-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:end;margin:30px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.chapter-num{font:500 .72rem var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--redwood)}
+.chapter h2{font-family:var(--display);font-size:clamp(1.8rem,3vw,3rem);font-weight:380;line-height:1;margin:0}
+.chapter-toggle{align-self:end;min-width:38px;height:38px;padding:0;font-size:1rem;line-height:1}
+.chapter.collapsed .chapter-body{display:none}
+.passage{position:relative;margin:0;border-bottom:1px solid rgba(43,36,24,.18);padding:22px 0}
+.passage.search-active{background:rgba(176,125,42,.09);outline:1px solid rgba(176,125,42,.55);outline-offset:8px}
+.search-hit{background:rgba(176,125,42,.38);color:var(--ink);padding:0 .05em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.search-active .search-hit{background:rgba(176,125,42,.62)}
+.passage-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.pid{font:500 .66rem var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+.grid{display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:14px;align-items:start}
+.col{min-width:0}.col.hidden{display:none}.label{font:700 .66rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--redwood);margin:0 0 8px}
+.text{background:rgba(248,243,230,.56);border-left:2px solid rgba(176,125,42,.55);padding:12px 13px;min-height:92px}
+.source .text{font-size:1.08rem;line-height:1.72}.modernized .text{border-left-color:var(--redwood)}.canonical .text{border-left-color:var(--indigo)}
+.quality{display:none;margin-top:8px;gap:6px;flex-wrap:wrap}.mode-dev .quality{display:flex}.pill{font:700 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(43,36,24,.35);padding:3px 6px;color:var(--ink-soft);background:rgba(248,243,230,.6)}
+.footnotes{margin:12px 0 0;padding:10px 12px;border-left:1px solid var(--rule);background:rgba(232,223,203,.42);font-size:.92rem;color:var(--ink-soft)}
+.footnotes div+div{margin-top:5px}.fn-num{font-family:var(--mono);font-size:.68rem;color:var(--redwood);margin-right:6px}
+.feedback{margin-top:12px}.feedback summary{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(43,36,24,.45);padding:7px 10px;font:700 .68rem var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;user-select:none;background:rgba(248,243,230,.65)}
+.feedback summary::-webkit-details-marker{display:none}.feedback summary:hover,.feedback[open] summary{background:var(--ink);color:var(--cream)}
+.feedback-body{margin-top:8px;display:grid;grid-template-columns:auto auto minmax(180px,1fr) auto;gap:8px;align-items:center}
+.feedback button{padding:7px 9px}.feedback textarea{min-height:38px;resize:vertical;border:1px solid rgba(43,36,24,.35);background:var(--cream);padding:8px 9px;font:400 .88rem var(--sans);color:var(--ink)}
+.mode-dev .feedback{display:none}
+.grk{border-bottom:1px dotted rgba(122,35,23,.55);cursor:help}.grk:hover,.grk:focus{background:rgba(176,125,42,.18);outline:none}
+#tooltip{position:fixed;display:none;z-index:50;max-width:360px;background:#17130F;color:var(--cream);padding:13px 14px;box-shadow:0 12px 38px rgba(0,0,0,.25);border:1px solid rgba(248,243,230,.2)}
+#tooltip .hw{font-family:var(--display);font-size:1.45rem;line-height:1;color:var(--gold);margin-bottom:4px}
+#tooltip .pos{font:700 .62rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#B9AA8B;margin-bottom:8px}
+#tooltip .def{font-size:.94rem;color:#F2E7D1}
+.empty{padding:60px 0;color:var(--ink-soft);font-style:italic}
+footer{border-top:1px solid var(--ink);padding:28px;color:var(--ink-soft);font:500 .75rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:980px){.mast{grid-template-columns:1fr}.tools-inner{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.feedback-body{grid-template-columns:auto auto 1fr}.feedback .send{grid-column:1/-1}.tools{top:52px}}
+</style>
+</head>
+<body class="mode-public">
+<div class="topbar"><div class="topbar-inner"><a class="brand" href="../"><img src="../assets/logo-dark.png" alt=""><span>Redwood Revival Press</span></a><nav class="nav"><a href="../">Catalogue</a><a href="mailto:cyrus@redwoodrevivalpress.com">Contact</a></nav></div></div>
+<header class="mast"><div><p class="eyebrow">Translation Preview</p><h1>Aristotle's <em>Rhetoric.</em></h1></div><p class="dek">Greek source, final literal translation, modernized Redwood translation, and the canonical Freese text aligned passage by passage.</p></header>
+<section class="tools"><div class="tools-inner"><div class="search"><input id="search" type="search" placeholder="Search passages" autocomplete="off"></div><div class="search-nav"><button id="prevMatch" aria-label="Previous match">↑</button><span id="matchCount">0 / 0</span><button id="nextMatch" aria-label="Next match">↓</button></div><div class="dev-controls" id="devControls"></div></div><div class="dev-meta" id="devMeta"></div></section>
+<main id="app"></main><div id="tooltip"></div>
+<footer>© 2026 Redwood Revival Press · Berkeley, California</footer>
+<script src="./rhetoric-translation-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
+<script>
+const DATA = window.RHETORIC_TRANSLATION_DATA;
+const params = new URLSearchParams(location.search);
+const MODE = params.get("mode") === "dev" || params.get("dev") === "1" ? "dev" : "public";
+document.body.className = MODE === "dev" ? "mode-dev" : "mode-public";
+const COLUMNS = {
+  source: "Source",
+  draftLiteral: "Draft literal",
+  finalLiteral: "Final literal",
+  adapted: "Adapted",
+  modernized: "Modernized",
+  canonical: "Canonical"
+};
+let visibleColumns = new Set(MODE === "dev" ? DATA.defaults.devColumns : DATA.defaults.publicColumns);
+let passageEls = [];
+let matches = [];
+let matchIndex = -1;
+const escapeHtml = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fnrefs = s => escapeHtml(s || "").replace(/\{\{fnref:\d+:(\d+)\}\}/g, (_, n) => `<sup>${escapeHtml(n)}</sup>`);
+const greekRe = /[Ͱ-Ͽἀ-῿̀-ͯ]+/g;
+function tokenizeGreek(text) {
+  let out = "", last = 0;
+  for (const m of String(text || "").matchAll(greekRe)) {
+    out += escapeHtml(text.slice(last, m.index));
+    const w = m[0];
+    if (w.length >= 2 && w.replace(/[̀-ͯ]/g, "").length >= 2) out += `<span class="grk" tabindex="0" data-w="${escapeHtml(w)}">${escapeHtml(w)}</span>`;
+    else out += escapeHtml(w);
+    last = m.index + w.length;
+  }
+  return out + escapeHtml(String(text || "").slice(last));
+}
+function render() {
+  const app = document.getElementById("app");
+  if (!DATA.chapters.length) { app.innerHTML = `<div class="empty">No modernized passages available.</div>`; return; }
+  app.innerHTML = DATA.chapters.map((ch, ci) => `
+    <section class="chapter" id="${escapeHtml(ch.id)}">
+      <div class="chapter-head">
+        <div class="chapter-num">Section ${ci + 1}</div>
+        <h2>${escapeHtml(ch.title)}</h2>
+        <button class="chapter-toggle" aria-expanded="true" aria-controls="${escapeHtml(ch.id)}-body" aria-label="Collapse section" title="Collapse section">−</button>
+      </div>
+      <div class="chapter-body" id="${escapeHtml(ch.id)}-body">${ch.passages.map(p => renderPassage(p, ch)).join("")}</div>
+    </section>`).join("");
+  passageEls = [...document.querySelectorAll(".passage")];
+  syncColumns();
+}
+function renderPassage(p, chapter) {
+  const cols = Object.keys(COLUMNS).map(key => {
+    const val = p[key] || "";
+    const body = key === "source" ? tokenizeGreek(val) : fnrefs(val);
+    const quality = MODE === "dev" && key === "modernized" && p.quality?.modernization
+      ? `<div class="quality">${qualityPills(p.quality.modernization)}</div>` : "";
+    return `<div class="col ${key}" data-col="${key}"><div class="label">${COLUMNS[key]}</div><div class="text">${body || "<em>not available</em>"}</div>${quality}</div>`;
+  }).join("");
+  const fns = (p.footnotes || []).length ? `<div class="footnotes">${p.footnotes.map(fn => `<div><span class="fn-num">${escapeHtml(fn.num)}</span>${escapeHtml(fn.text || "")}</div>`).join("")}</div>` : "";
+  return `<article class="passage" id="${escapeHtml(p.id)}" data-passage="${escapeHtml(p.id)}" data-search="${escapeHtml(searchTextFor(p, chapter))}">
+    <div class="passage-head"><div class="pid">${escapeHtml(p.id)} · page ${escapeHtml(p.page)}</div></div>
+    <div class="grid">${cols}</div>${fns}${feedbackHtml(p)}
+  </article>`;
+}
+function searchTextFor(p, chapter) {
+  const keys = MODE === "dev" ? Object.keys(COLUMNS) : DATA.defaults.publicColumns;
+  const footnotes = (p.footnotes || []).map(fn => fn.text || "").join(" ");
+  return [chapter.title, p.id, ...keys.map(key => p[key] || ""), footnotes].join(" ").toLowerCase();
+}
+function qualityPills(j) {
+  return [
+    ["verdict", j.verdict],
+    ["idea", j.idea_accuracy_score],
+    ["style", j.style_quality_score],
+    ["clear", j.presentation_clarity_score]
+  ].map(([k,v]) => `<span class="pill">${escapeHtml(k)} ${escapeHtml(v ?? "")}</span>`).join("");
+}
+function feedbackHtml(p) {
+  return `<details class="feedback" data-feedback="${escapeHtml(p.id)}">
+    <summary>Feedback</summary>
+    <div class="feedback-body">
+      <button data-vote="up" aria-label="Thumbs up">&#128077;</button>
+      <button data-vote="down" aria-label="Thumbs down">&#128078;</button>
+      <textarea placeholder="Note" aria-label="Feedback note"></textarea>
+      <button class="send">Send</button>
+    </div>
+  </details>`;
+}
+function syncColumns() {
+  const count = [...visibleColumns].length || 1;
+  document.querySelectorAll(".grid").forEach(g => g.style.setProperty("--cols", count));
+  document.querySelectorAll("[data-col]").forEach(el => el.classList.toggle("hidden", !visibleColumns.has(el.dataset.col)));
+  document.querySelectorAll(".toggle").forEach(btn => btn.classList.toggle("off", !visibleColumns.has(btn.dataset.col)));
+  const input = document.getElementById("search");
+  if (input?.value.trim()) runSearch(0);
+}
+function setupDevControls() {
+  if (MODE !== "dev") return;
+  document.getElementById("devControls").innerHTML = Object.entries(COLUMNS).map(([key,label]) => `<button class="toggle" data-col="${key}">${label}</button>`).join("");
+  document.getElementById("devControls").addEventListener("click", ev => {
+    const btn = ev.target.closest(".toggle"); if (!btn) return;
+    visibleColumns.has(btn.dataset.col) ? visibleColumns.delete(btn.dataset.col) : visibleColumns.add(btn.dataset.col);
+    syncColumns();
+  });
+  const passageCount = DATA.chapters.flatMap(ch => ch.passages).length;
+  document.getElementById("devMeta").textContent = `Dev mode · ${passageCount} passages · ${Object.keys(DATA.lexicon || {}).length} Greek hover entries`;
+}
+function runSearch(step = 0) {
+  const q = document.getElementById("search").value.trim().toLowerCase();
+  clearSearchHighlights(() => {
+    passageEls.forEach(el => el.classList.remove("search-active"));
+    if (!q) { matches = []; matchIndex = -1; updateMatchCount(); return; }
+    if (typeof window.Mark !== "function") {
+      matches = passageEls.filter(el => el.dataset.search.includes(q));
+      if (!matches.length) { matchIndex = -1; updateMatchCount(); return; }
+      matchIndex = step === 0 ? 0 : (matchIndex + step + matches.length) % matches.length;
+      activateMatch();
+      return;
+    }
+    applySearchHighlights(q, () => {
+      matches = collectHighlightedPassages();
+      if (!matches.length) { matchIndex = -1; updateMatchCount(); return; }
+      matchIndex = step === 0 ? 0 : (matchIndex + step + matches.length) % matches.length;
+      activateMatch();
+    });
+  });
+}
+function activateMatch() {
+  passageEls.forEach(el => el.classList.remove("search-active"));
+  if (matchIndex < 0 || !matches[matchIndex]) { updateMatchCount(); return; }
+  const el = matches[matchIndex];
+  setChapterCollapsed(el.closest(".chapter"), false);
+  el.classList.add("search-active");
+  el.scrollIntoView({block:"center", behavior:"smooth"});
+  history.replaceState(null, "", `#${el.id}`);
+  updateMatchCount();
+}
+function updateMatchCount() {
+  document.getElementById("matchCount").textContent = matches.length ? `${matchIndex + 1} / ${matches.length}` : "0 / 0";
+  document.getElementById("prevMatch").disabled = !matches.length;
+  document.getElementById("nextMatch").disabled = !matches.length;
+}
+function setupSearch() {
+  const input = document.getElementById("search");
+  input.addEventListener("input", () => runSearch(0));
+  input.addEventListener("keydown", ev => {
+    if (ev.key === "Enter") { ev.preventDefault(); runSearch(ev.shiftKey ? -1 : 1); }
+  });
+  document.getElementById("prevMatch").addEventListener("click", () => runSearch(-1));
+  document.getElementById("nextMatch").addEventListener("click", () => runSearch(1));
+  updateMatchCount();
+}
+function clearSearchHighlights(done = () => {}) {
+  if (typeof window.Mark !== "function") { done(); return; }
+  new Mark(document.querySelector("main")).unmark({
+    element: "mark",
+    className: "search-hit",
+    done
+  });
+}
+function applySearchHighlights(q, done) {
+  new Mark(document.querySelector("main")).mark(q, {
+    element: "mark",
+    className: "search-hit",
+    separateWordSearch: false,
+    acrossElements: true,
+    exclude: [".chapter-head *", ".pid", ".label", ".quality *", ".feedback *", ".hidden *", "#tooltip *"],
+    done
+  });
+}
+function collectHighlightedPassages() {
+  const seen = new Set();
+  const out = [];
+  document.querySelectorAll("mark.search-hit").forEach(mark => {
+    const passage = mark.closest(".passage");
+    if (passage && !seen.has(passage)) {
+      seen.add(passage);
+      out.push(passage);
+    }
+  });
+  return out;
+}
+function setChapterCollapsed(chapter, collapsed) {
+  if (!chapter) return;
+  chapter.classList.toggle("collapsed", collapsed);
+  const button = chapter.querySelector(".chapter-toggle");
+  if (!button) return;
+  button.textContent = collapsed ? "+" : "−";
+  button.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  button.setAttribute("aria-label", collapsed ? "Expand section" : "Collapse section");
+  button.setAttribute("title", collapsed ? "Expand section" : "Collapse section");
+}
+function showTip(word, target) {
+  const entry = DATA.lexicon[word];
+  const tip = document.getElementById("tooltip");
+  if (!entry) return;
+  tip.innerHTML = `<div class="hw">${escapeHtml(entry.headword || word)}</div><div class="pos">${escapeHtml(entry.partOfSpeech || "Greek")}${entry.short ? " · " + escapeHtml(entry.short) : ""}</div><div class="def">${escapeHtml(entry.definition || "")}</div>`;
+  tip.style.display = "block";
+  const r = target.getBoundingClientRect();
+  const pad = 12;
+  let x = r.left, y = r.bottom + pad;
+  tip.style.left = Math.min(window.innerWidth - tip.offsetWidth - pad, Math.max(pad, x)) + "px";
+  tip.style.top = Math.min(window.innerHeight - tip.offsetHeight - pad, Math.max(pad, y)) + "px";
+}
+document.addEventListener("mouseover", ev => { const el = ev.target.closest(".grk"); if (el) showTip(el.dataset.w, el); });
+document.addEventListener("focusin", ev => { const el = ev.target.closest(".grk"); if (el) showTip(el.dataset.w, el); });
+document.addEventListener("mouseout", ev => { if (ev.target.closest(".grk")) document.getElementById("tooltip").style.display = "none"; });
+document.addEventListener("focusout", ev => { if (ev.target.closest(".grk")) document.getElementById("tooltip").style.display = "none"; });
+document.addEventListener("click", ev => {
+  const chapterButton = ev.target.closest(".chapter-toggle");
+  if (chapterButton) {
+    const chapter = chapterButton.closest(".chapter");
+    setChapterCollapsed(chapter, !chapter.classList.contains("collapsed"));
+    return;
+  }
+  const vote = ev.target.closest("[data-vote]");
+  if (vote) {
+    const box = vote.closest(".feedback");
+    box.querySelectorAll("[data-vote]").forEach(b => b.classList.toggle("active", b === vote));
+    box.dataset.vote = vote.dataset.vote;
+  }
+  const send = ev.target.closest(".send");
+  if (send) {
+    const box = send.closest(".feedback");
+    const p = DATA.chapters.flatMap(ch => ch.passages).find(x => x.id === box.dataset.feedback);
+    const voteValue = box.dataset.vote || "unspecified";
+    const note = box.querySelector("textarea").value.trim();
+    const subject = encodeURIComponent(`Rhetoric feedback · ${p.id} · ${voteValue}`);
+    const body = encodeURIComponent(`Passage: ${p.id}\nPage: ${p.page}\nVote: ${voteValue}\n\nNote:\n${note}\n\nModernized passage:\n${p.modernized}`);
+    location.href = `mailto:${DATA.book.contactEmail}?subject=${subject}&body=${body}`;
+  }
+});
+setupDevControls();
+render();
+setupSearch();
+</script>
+</body>
+</html>

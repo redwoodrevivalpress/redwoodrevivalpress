@@ -536,6 +536,41 @@
     background: var(--redwood-dark);
     border-color: var(--redwood-dark);
   }
+  .pub-link.format-web,
+  .pub-link.format-paperback,
+  .pub-link.format-kindle,
+  .pub-link.format-hardback {
+    background: var(--format-bg);
+    color: var(--cream);
+    border-color: var(--format-bg);
+  }
+  .pub-link.format-web:hover,
+  .pub-link.format-paperback:hover,
+  .pub-link.format-kindle:hover,
+  .pub-link.format-hardback:hover {
+    background: var(--format-hover);
+    border-color: var(--format-hover);
+  }
+  .pub-link.format-web {
+    --format-bg: var(--gold);
+    --format-hover: #8A5D18;
+    color: var(--ink);
+  }
+  .pub-link.format-web:hover {
+    color: var(--cream);
+  }
+  .pub-link.format-paperback {
+    --format-bg: var(--redwood);
+    --format-hover: var(--redwood-dark);
+  }
+  .pub-link.format-kindle {
+    --format-bg: var(--indigo);
+    --format-hover: #1E2746;
+  }
+  .pub-link.format-hardback {
+    --format-bg: var(--moss);
+    --format-hover: #253B2D;
+  }
   .pub-link.disabled {
     color: var(--ink-faint);
     border-color: var(--ink-faint);
@@ -669,7 +704,7 @@
         Redwood&nbsp;Revival
         <span class="press">Press.</span>
       </h1>
-      <p class="hero-sig">A small independent press · Berkeley, California</p>
+      <p class="hero-sig">A small independent publisher · Berkeley, California</p>
     </div>
     <div class="hero-deck">
       <div class="hero-rule"></div>
@@ -691,21 +726,21 @@
   <div class="pubs">
 
     <article class="pub">
-      <a class="cover-slot" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener" aria-label="The World Is My Parish — paperback">
-        <img class="cover" src="./covers/parish-paperback.jpg" alt="The World Is My Parish cover" loading="lazy" width="334" height="500">
+      <a class="cover-slot" href="https://www.amazon.com/dp/B0H2H8THFV" target="_blank" rel="noopener" aria-label="Aristotle's Rhetoric — paperback">
+        <img class="cover" src="./covers/rhetoric-paperback.jpg" alt="Rhetoric cover" loading="lazy" width="334" height="500">
       </a>
       <div class="pub-body">
         <div class="pub-meta">
           <span class="pub-status published">Published</span>
-          <span class="pub-format">Paperback &middot; Hardcover &middot; Kindle</span>
+          <span class="pub-format">Paperback &middot; Kindle</span>
         </div>
-        <a class="pub-title" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener">The World Is My Parish: <em>An Autobiographical Odyssey</em></a>
-        <div class="pub-author">Loyal Lincoln Wirt, D.D.</div>
-        <p class="pub-blurb">A pioneer minister's first-person record of eighty years and four continents. From the American West and the Alaska gold rush to Australia, England, India, Turkey, and Siam, with two world wars in between.</p>
+        <a class="pub-title" href="https://www.amazon.com/dp/B0H2H8THFV" target="_blank" rel="noopener">Rhetoric: <em>a faithful adaptation for the modern reader</em></a>
+        <div class="pub-author"><em>Aristotle</em></div>
+        <p class="pub-blurb">A faithful and approachable adaptation of Aristotle’s <em>Rhetoric</em>. Drastically more readable for the modern reader than the 1926 Freese translation, and often closer in meaning to the Greek original. Use the Translation Explorer to compare the Greek source, final literal translation, modernized adaptation, and Freese passage by passage.</p>
         <div class="pub-actions">
-          <a class="pub-link primary" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener">Paperback</a>
-          <a class="pub-link" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DLKP9MS3/" target="_blank" rel="noopener">Hardcover</a>
-          <a class="pub-link" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">Kindle</a>
+          <a class="pub-link format-web" href="./rhetoric/">Translation Explorer</a>
+          <a class="pub-link format-paperback" href="https://www.amazon.com/dp/B0H2H8THFV" target="_blank" rel="noopener">Paperback</a>
+          <a class="pub-link format-kindle" href="https://www.amazon.com/dp/B0GXLGN2VP" target="_blank" rel="noopener">Kindle</a>
         </div>
       </div>
     </article>
@@ -723,8 +758,8 @@
         <div class="pub-author">Charles Keeler</div>
         <p class="pub-blurb">Charles Keeler's portrait of San Francisco, published four years before the 1906 earthquake destroyed most of what he describes. Spanish padres and Gold Rush argonauts through the Barbary Coast, Chinatown, and the Golden Gate. A city captured just before it vanished.</p>
         <div class="pub-actions">
-          <a class="pub-link primary" href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler/dp/B0GZHT8DC8/" target="_blank" rel="noopener">Paperback</a>
-          <a class="pub-link" href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler-ebook/dp/B0GZGQ2B22/" target="_blank" rel="noopener">Kindle</a>
+          <a class="pub-link format-paperback" href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler/dp/B0GZHT8DC8/" target="_blank" rel="noopener">Paperback</a>
+          <a class="pub-link format-kindle" href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler-ebook/dp/B0GZGQ2B22/" target="_blank" rel="noopener">Kindle</a>
         </div>
       </div>
     </article>
@@ -746,27 +781,27 @@
         <div class="pub-author">an original long-form companion</div>
         <p class="pub-blurb">A field companion to the ancient relationship between humans and the world's most popular beverage. From the 15th-century written record to the 12,000-year-old domestication signature in the genome.</p>
         <div class="pub-actions">
-          <a class="pub-link primary" href="./coffee/">Read the dispatch</a>
+          <a class="pub-link format-web" href="./coffee/">Read the dispatch</a>
         </div>
       </div>
     </article>
 
     <article class="pub">
-      <div class="placeholder gold">
-        <span class="placeholder-mark">RRP · 004 · in flight</span>
-        <p class="placeholder-title">Aristotle's <em>Rhetoric.</em></p>
-        <span class="placeholder-year">MMXXVI</span>
-      </div>
+      <a class="cover-slot" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener" aria-label="The World Is My Parish — paperback">
+        <img class="cover" src="./covers/parish-paperback.jpg" alt="The World Is My Parish cover" loading="lazy" width="334" height="500">
+      </a>
       <div class="pub-body">
         <div class="pub-meta">
-          <span class="pub-status in-flight">In flight</span>
-          <span class="pub-format">Parallel translation</span>
+          <span class="pub-status published">Published</span>
+          <span class="pub-format">Paperback &middot; Hardcover &middot; Kindle</span>
         </div>
-        <span class="pub-title">Aristotle's <em>Rhetoric.</em></span>
-        <div class="pub-author">a new translation</div>
-        <p class="pub-blurb">A fresh translation of Aristotle's foundational treatise on persuasion. Closer to the Greek original than the standard English editions, and drastically more readable for the modern reader. Presented alongside the canonical text so you can compare line by line.</p>
+        <a class="pub-title" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener">The World Is My Parish: <em>An Autobiographical Odyssey</em></a>
+        <div class="pub-author">Loyal Lincoln Wirt, D.D.</div>
+        <p class="pub-blurb">A pioneer minister's first-person record of eighty years and four continents. From the American West and the Alaska gold rush to Australia, England, India, Turkey, and Siam, with two world wars in between.</p>
         <div class="pub-actions">
-          <span class="pub-link disabled">Coming soon</span>
+          <a class="pub-link format-paperback" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DRFSBMRZ/" target="_blank" rel="noopener">Paperback</a>
+          <a class="pub-link format-hardback" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey/dp/B0DLKP9MS3/" target="_blank" rel="noopener">Hardcover</a>
+          <a class="pub-link format-kindle" href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">Kindle</a>
         </div>
       </div>
     </article>
@@ -785,10 +820,10 @@
     <div>
       <h4 class="footer-label">Catalogue</h4>
       <ul class="footer-list">
-        <li><a href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">The World Is My Parish</a></li>
+        <li><a href="https://www.amazon.com/dp/B0H2H8THFV" target="_blank" rel="noopener">Aristotle's Rhetoric</a></li>
         <li><a href="https://www.amazon.com/San-Francisco-Thereabout-Charles-Keeler/dp/B0GZHT8DC8/" target="_blank" rel="noopener">San Francisco and Thereabout</a></li>
         <li><a href="./coffee/">History of Coffee</a></li>
-        <li><a href="#catalogue">Aristotle's Rhetoric</a></li>
+        <li><a href="https://www.amazon.com/World-My-Parish-Autobiographical-Odyssey-ebook/dp/B0DK41PVLG/" target="_blank" rel="noopener">The World Is My Parish</a></li>
       </ul>
     </div>
     <div>
