@@ -1,0 +1,10 @@
+{
+  "books": [
+    {
+      "id": "aristotle-rhetoric-book-1",
+      "title": "Aristotle's Rhetoric, Book I",
+      "author": "Aristotle",
+      "href": "./books/aristotle-rhetoric-book-1-readalong.epub"
+    }
+  ]
+}

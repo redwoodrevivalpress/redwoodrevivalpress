@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redwood Kinetic Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-yBhPZZ6o.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DhDCH2yD.css">
+  </head>
+  <body>
+    <div id="app">
+      <header class="reader-bar">
+        <div class="identity">
+          <img class="reader-logo" src="../assets/logo-light.png" alt="Redwood Revival Press" width="42" height="45" />
+          <div>
+            <div class="eyebrow">Redwood Revival Press</div>
+            <h1>Kinetic Reader</h1>
+          </div>
+        </div>
+
+        <div class="loaders">
+          <select id="hostedBookSelect" aria-label="Hosted readalong book" disabled hidden>
+            <option>No hosted books</option>
+          </select>
+          <button id="loadHostedBookButton" type="button" disabled hidden>Load hosted book</button>
+          <label class="file-picker">
+            <input id="fileInput" type="file" accept=".epub,application/epub+zip" />
+            Open EPUB
+          </label>
+        </div>
+      </header>
+
+      <main class="reader-shell">
+        <section class="stage-wrap">
+          <div class="stage-header">
+            <div>
+              <div id="bookMeta" class="book-meta">No book loaded</div>
+              <div id="chapterControls" class="chapter-controls" hidden>
+                <select id="chapterSelect" disabled></select>
+                <button id="chapterToggleButton" type="button" disabled>Hide chapters</button>
+              </div>
+            </div>
+            <div id="status" class="status">Ready</div>
+          </div>
+
+          <div class="canvas-frame">
+            <canvas id="readerCanvas" aria-label="Kinetic readalong text"></canvas>
+          </div>
+
+          <div class="transport">
+            <div class="transport-main" aria-label="Playback navigation">
+              <button id="previousSectionButton" class="transport-button" type="button" title="Previous section" aria-label="Previous section" disabled>|&#9664;</button>
+              <button id="rewindButton" class="transport-button" type="button" title="Back 15 seconds" aria-label="Back 15 seconds" disabled>-15</button>
+              <button id="pauseButton" class="transport-button" type="button" title="Pause" aria-label="Pause" disabled>&#10073;&#10073;</button>
+              <button id="playButton" class="transport-button primary" type="button" title="Play" aria-label="Play" disabled>&#9654;</button>
+              <button id="forwardButton" class="transport-button" type="button" title="Forward 15 seconds" aria-label="Forward 15 seconds" disabled>+15</button>
+              <button id="nextSectionButton" class="transport-button" type="button" title="Next section" aria-label="Next section" disabled>&#9654;|</button>
+            </div>
+            <label class="scrub-control">
+              <span id="currentTime">0:00</span>
+              <input id="scrubInput" type="range" min="0" max="0" step="0.1" value="0" aria-label="Playback position" disabled />
+              <span id="duration">0:00</span>
+            </label>
+            <div class="transport-settings">
+              <label>
+                Speed
+                <input id="speedInput" type="range" min="0.7" max="1.4" step="0.05" value="1" />
+                <span id="speedLabel">1.00x</span>
+              </label>
+              <label>
+                Mode
+                <select id="modeSelect">
+                  <option value="lens">Lens</option>
+                  <option value="line">Line lock</option>
+                </select>
+              </label>
+              <button id="advancedOptionsButton" type="button" aria-expanded="false" aria-controls="advancedControls">Advanced mode options</button>
+              <div id="advancedControls" class="advanced-controls" hidden>
+                <label>
+                  Magnify
+                  <input id="magnificationInput" type="range" min="1" max="1.8" step="0.05" value="1.4" />
+                  <span id="magnificationLabel">1.40x</span>
+                </label>
+                <label>
+                  Focus
+                  <input id="focusInput" type="range" min="0" max="1" step="0.05" value="0.5" />
+                  <span id="focusLabel">50%</span>
+                </label>
+                <label>
+                  Fade/line
+                  <input id="lineFadeInput" type="range" min="0" max="1" step="0.05" value="1" />
+                  <span id="lineFadeLabel">100%</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <audio id="audio" preload="metadata"></audio>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
