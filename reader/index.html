@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-C33-9BF_.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DHGWQCW0.css">
+    <script type="module" crossorigin src="./assets/index-D7j4fXEp.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B8caf0Ck.css">
   </head>
   <body>
     <div id="app">
@@ -48,6 +48,14 @@
 
           <div class="canvas-frame">
             <canvas id="readerCanvas" aria-label="Kinetic readalong text"></canvas>
+            <div id="loadingOverlay" class="loading-overlay" role="status" aria-live="polite" hidden>
+              <div class="loading-panel">
+                <div id="loadingLabel" class="loading-label">Loading book</div>
+                <div class="loading-track" aria-hidden="true">
+                  <div id="loadingBar" class="loading-bar"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="transport">
