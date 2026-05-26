@@ -7,7 +7,7 @@
 <meta name="description" content="A source-aligned preview of Aristotle's Rhetoric with Greek source, literal translation, adapted translation, modernized translation, and Freese 1926.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <style>
 :root {
@@ -15,8 +15,8 @@
   --ink-faint:#847962; --rule:#C9B98D; --redwood:#7A2317;
   --redwood-dark:#54180F; --moss:#2F4A38; --gold:#B07D2A;
   --indigo:#283358; --cream:#F8F3E6; --display:'Fraunces','Newsreader',Georgia,serif;
-  --body:'Newsreader',Georgia,serif; --sans:'Space Grotesk',system-ui,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --body:'Newsreader',Georgia,serif; --sans:'Fraunces','Newsreader',Georgia,serif;
+  --mono:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -39,7 +39,7 @@ button{font-family:var(--sans);font-weight:700;border:1px solid var(--ink);backg
 button:hover:not(:disabled),button.active{background:var(--ink);color:var(--cream)}
 button:disabled{opacity:.35;cursor:default}
 .dev-controls{display:flex;justify-content:flex-end;gap:7px;flex-wrap:wrap}
-.toggle{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}.toggle.off{opacity:.48;text-decoration:line-through}
+.toggle{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;user-select:none}.toggle.off{opacity:.48;text-decoration:line-through}.toggle[draggable="true"]{cursor:grab}.toggle.dragging{opacity:.38}.toggle.drop-target{outline:2px solid var(--redwood);outline-offset:2px}
 .dev-meta{display:none;max-width:1480px;margin:0 auto;padding:8px 28px 0;font:500 .68rem var(--mono);letter-spacing:.08em;color:var(--ink-faint)}.mode-dev .dev-meta{display:block}
 main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
 .chapter{margin:0 0 42px}.chapter-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:end;margin:30px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
@@ -56,7 +56,7 @@ main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
 .grid{display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:14px;align-items:start}
 .col{min-width:0}.col.hidden{display:none}.label{font:700 .66rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--redwood);margin:0 0 8px}
 .text{background:rgba(248,243,230,.56);border-left:2px solid rgba(176,125,42,.55);padding:12px 13px;min-height:92px}
-.source .text{font-size:1.08rem;line-height:1.72}.modernized .text{border-left-color:var(--redwood)}.canonical .text{border-left-color:var(--indigo)}
+.source .text{font-size:1.08rem;line-height:1.72}.modernized .text,.modernizedV2 .text,.modernizedV3 .text{border-left-color:var(--redwood)}.canonical .text{border-left-color:var(--indigo)}
 .quality{display:none;margin-top:8px;gap:6px;flex-wrap:wrap}.mode-dev .quality{display:flex}.pill{font:700 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(43,36,24,.35);padding:3px 6px;color:var(--ink-soft);background:rgba(248,243,230,.6)}
 .footnotes{margin:12px 0 0;padding:10px 12px;border-left:1px solid var(--rule);background:rgba(232,223,203,.42);font-size:.92rem;color:var(--ink-soft)}
 .col .footnotes{font-size:.86rem;background:rgba(232,223,203,.34)}
@@ -79,7 +79,7 @@ footer{border-top:1px solid var(--ink);padding:28px;color:var(--ink-soft);font:5
 </head>
 <body class="mode-public">
 <div class="topbar"><div class="topbar-inner"><a class="brand" href="../"><img src="../assets/logo-dark.png" alt=""><span>Redwood Revival Press</span></a><nav class="nav"><a href="../">Catalogue</a><a href="mailto:cyrus@redwoodrevivalpress.com">Contact</a></nav></div></div>
-<header class="mast"><div><p class="eyebrow">Translation Preview</p><h1>Aristotle's <em>Rhetoric.</em></h1></div><p class="dek">Greek source, literal translation, adapted Redwood translation, modernized Redwood translation, and Freese 1926 aligned passage by passage.</p></header>
+<header class="mast"><div><p class="eyebrow">Translation Preview</p><h1>Aristotle's <em>Rhetoric.</em></h1></div><p class="dek">Greek source, transliteration, literal translation, adapted Redwood translation, modernized Redwood translation, and Freese 1926 aligned passage by passage.</p></header>
 <section class="tools"><div class="tools-inner"><div class="search"><input id="search" type="search" placeholder="Search passages" autocomplete="off"></div><div class="search-nav"><button id="prevMatch" aria-label="Previous match">↑</button><span id="matchCount">0 / 0</span><button id="nextMatch" aria-label="Next match">↓</button></div><div class="dev-controls" id="devControls"></div></div><div class="dev-meta" id="devMeta"></div></section>
 <main id="app"></main><div id="tooltip"></div>
 <footer>© 2026 Redwood Revival Press · Berkeley, California</footer>
@@ -92,18 +92,67 @@ const MODE = params.get("mode") === "dev" || params.get("dev") === "1" ? "dev" :
 document.body.className = MODE === "dev" ? "mode-dev" : "mode-public";
 const COLUMNS = {
   source: "Source",
+  sourceTransliteration: "Transliteration",
   draftLiteral: "Draft literal",
-  finalLiteral: "Literal",
-  adapted: "Adapted",
-  modernized: "Modernized",
+  finalLiteral: "Word-for-word translation",
+  adapted: "Improved translation",
+  modernized: "Modernization",
+  modernizedV2: "Modernization v2",
+  modernizedV3: "Modernization v3",
   canonical: DATA.book.canonicalLabel || "Freese 1926"
 };
-let visibleColumns = new Set(MODE === "dev" ? DATA.defaults.devColumns : DATA.defaults.publicColumns);
+const COLUMN_ALIASES = {
+  source: "source", greek: "source", original: "source",
+  sourcetransliteration: "sourceTransliteration", transliteration: "sourceTransliteration", transliterated: "sourceTransliteration", translit: "sourceTransliteration", latin: "sourceTransliteration",
+  draft: "draftLiteral", draftliteral: "draftLiteral", drafttranslation: "draftLiteral",
+  literal: "finalLiteral", finalliteral: "finalLiteral", wordforword: "finalLiteral", wordforwordtranslation: "finalLiteral",
+  adapted: "adapted", improved: "adapted", improvedtranslation: "adapted",
+  modernized: "modernized", modernization: "modernized", modern: "modernized",
+  modernizedv2: "modernizedV2", modernizationv2: "modernizedV2", modernv2: "modernizedV2", v2: "modernizedV2",
+  modernizedv3: "modernizedV3", modernizationv3: "modernizedV3", modernv3: "modernizedV3", v3: "modernizedV3",
+  canonical: "canonical", freese: "canonical", freese1926: "canonical"
+};
+function allowedColumnKeys() {
+  return (MODE === "dev" ? DATA.defaults.devColumns : DATA.defaults.publicColumns).filter(key => COLUMNS[key]);
+}
+function normalizeColumnToken(token) {
+  return String(token || "").trim().toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+function columnsFromUrl() {
+  const raw = params.get("cols") || params.get("columns") || "";
+  if (!raw.trim()) return [];
+  const allowed = new Set(allowedColumnKeys());
+  const out = [];
+  raw.split(/[,+|;\s]+/).forEach(part => {
+    const key = COLUMN_ALIASES[normalizeColumnToken(part)];
+    if (key && allowed.has(key) && !out.includes(key)) out.push(key);
+  });
+  return out;
+}
+const DEFAULT_COLUMN_ORDER = allowedColumnKeys();
+const URL_COLUMNS = columnsFromUrl();
+let columnOrder = URL_COLUMNS.length
+  ? [...URL_COLUMNS, ...DEFAULT_COLUMN_ORDER.filter(key => !URL_COLUMNS.includes(key))]
+  : [...DEFAULT_COLUMN_ORDER];
+let visibleColumns = new Set(URL_COLUMNS.length ? URL_COLUMNS : DEFAULT_COLUMN_ORDER);
 let passageEls = [];
 let matches = [];
 let matchIndex = -1;
+let draggedColumn = null;
+let suppressToggleClick = false;
 const escapeHtml = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const fnrefs = s => escapeHtml(s || "").replace(/\{\{fnref:\d+:(\d+)\}\}/g, (_, n) => `<sup>${escapeHtml(n)}</sup>`);
+const inlineTokenRe = /\{\{fnref:\d+:(\d+)\}\}|<\/?(?:em|strong)>/g;
+function formatInlineText(text) {
+  let out = "", last = 0;
+  for (const m of String(text || "").matchAll(inlineTokenRe)) {
+    out += escapeHtml(String(text || "").slice(last, m.index));
+    const token = m[0].toLowerCase();
+    if (m[1]) out += `<sup>${escapeHtml(m[1])}</sup>`;
+    else if (token === "<em>" || token === "</em>" || token === "<strong>" || token === "</strong>") out += token;
+    last = m.index + m[0].length;
+  }
+  return out + escapeHtml(String(text || "").slice(last));
+}
 const greekRe = /[Ͱ-Ͽἀ-῿̀-ͯ]+/g;
 function tokenizeGreek(text) {
   let out = "", last = 0;
@@ -111,6 +160,20 @@ function tokenizeGreek(text) {
     out += escapeHtml(text.slice(last, m.index));
     const w = m[0];
     if (w.length >= 2 && w.replace(/[̀-ͯ]/g, "").length >= 2) out += `<span class="grk" tabindex="0" data-w="${escapeHtml(w)}">${escapeHtml(w)}</span>`;
+    else out += escapeHtml(w);
+    last = m.index + w.length;
+  }
+  return out + escapeHtml(String(text || "").slice(last));
+}
+const transliterationWordRe = /[A-Za-zēōĒŌ]+/g;
+function tokenizeTransliteration(source, text) {
+  const greekWords = [...String(source || "").matchAll(greekRe)].map(m => m[0]);
+  let out = "", last = 0, i = 0;
+  for (const m of String(text || "").matchAll(transliterationWordRe)) {
+    out += escapeHtml(text.slice(last, m.index));
+    const w = m[0];
+    const greek = greekWords[i++];
+    if (greek && greek.length >= 2 && greek.replace(/[̀-ͯ]/g, "").length >= 2) out += `<span class="grk" tabindex="0" data-w="${escapeHtml(greek)}">${escapeHtml(w)}</span>`;
     else out += escapeHtml(w);
     last = m.index + w.length;
   }
@@ -131,10 +194,13 @@ function render() {
   passageEls = [...document.querySelectorAll(".passage")];
   syncColumns();
 }
+function orderedVisibleColumns() {
+  return columnOrder.filter(key => visibleColumns.has(key));
+}
 function renderPassage(p, chapter) {
-  const cols = Object.keys(COLUMNS).map(key => {
+  const cols = columnOrder.map(key => {
     const val = p[key] || "";
-    const body = key === "source" ? tokenizeGreek(val) : fnrefs(val);
+    const body = key === "source" ? tokenizeGreek(val) : key === "sourceTransliteration" ? tokenizeTransliteration(p.source, val) : formatInlineText(val);
     const quality = MODE === "dev" && key === "modernized" && p.quality?.modernization
       ? `<div class="quality">${qualityPills(p.quality.modernization)}</div>` : "";
     return `<div class="col ${key}" data-col="${key}"><div class="label">${COLUMNS[key]}</div><div class="text">${body || "<em>not available</em>"}</div>${columnFootnotes(p, key)}${quality}</div>`;
@@ -145,7 +211,7 @@ function renderPassage(p, chapter) {
   </article>`;
 }
 function columnFootnotes(p, key) {
-  const notes = key === "adapted" ? p.adaptedFootnotes : key === "modernized" ? p.modernizedFootnotes : [];
+  const notes = key === "adapted" ? p.adaptedFootnotes : key === "modernized" ? p.modernizedFootnotes : key === "modernizedV2" ? p.modernizedV2Footnotes : key === "modernizedV3" ? p.modernizedV3Footnotes : [];
   if (!notes || !notes.length) return "";
   return `<div class="footnotes">${notes.map(fn => `<div><span class="fn-num">${escapeHtml(fn.num)}</span>${escapeHtml(fn.text || "")}</div>`).join("")}</div>`;
 }
@@ -214,11 +280,14 @@ async function submitFeedback(box) {
     context: {
       version,
       section_title: chapter?.title || "",
-      visible_columns: [...visibleColumns],
+      visible_columns: orderedVisibleColumns(),
       source: p.source || "",
+      source_transliteration: p.sourceTransliteration || "",
       literal: p.finalLiteral || "",
       adapted: p.adapted || "",
       modernized: p.modernized || "",
+      modernized_v2: p.modernizedV2 || "",
+      modernized_v3: p.modernizedV3 || "",
       freese_1926: p.canonical || ""
     }
   };
@@ -245,21 +314,96 @@ async function submitFeedback(box) {
     send.disabled = false;
   }
 }
+function columnUrlValue() {
+  return orderedVisibleColumns().join(",");
+}
+function updateColumnUrl() {
+  const url = new URL(location.href);
+  const visible = orderedVisibleColumns();
+  const defaultVisible = DEFAULT_COLUMN_ORDER.length === visible.length && DEFAULT_COLUMN_ORDER.every((key, i) => key === visible[i]);
+  const defaultOrder = DEFAULT_COLUMN_ORDER.length === columnOrder.length && DEFAULT_COLUMN_ORDER.every((key, i) => key === columnOrder[i]);
+  if (defaultVisible && defaultOrder) url.searchParams.delete("cols");
+  else url.searchParams.set("cols", columnUrlValue());
+  url.searchParams.delete("columns");
+  history.replaceState(null, "", url);
+}
+function moveColumn(source, target) {
+  if (!source || !target || source === target) return false;
+  const from = columnOrder.indexOf(source);
+  const to = columnOrder.indexOf(target);
+  if (from < 0 || to < 0) return false;
+  const [item] = columnOrder.splice(from, 1);
+  columnOrder.splice(to, 0, item);
+  return true;
+}
+function renderColumnControls() {
+  document.getElementById("devControls").innerHTML = columnOrder.map(key => `<button class="toggle" data-col="${key}" draggable="true" aria-pressed="${visibleColumns.has(key) ? "true" : "false"}" title="Drag to reorder columns">${COLUMNS[key]}</button>`).join("");
+}
 function syncColumns() {
-  const count = [...visibleColumns].length || 1;
+  const visible = orderedVisibleColumns();
+  const count = visible.length || 1;
   document.querySelectorAll(".grid").forEach(g => g.style.setProperty("--cols", count));
-  document.querySelectorAll("[data-col]").forEach(el => el.classList.toggle("hidden", !visibleColumns.has(el.dataset.col)));
-  document.querySelectorAll(".toggle").forEach(btn => btn.classList.toggle("off", !visibleColumns.has(btn.dataset.col)));
+  document.querySelectorAll(".col[data-col]").forEach(el => {
+    const order = columnOrder.indexOf(el.dataset.col);
+    el.style.order = order < 0 ? 999 : order;
+    el.classList.toggle("hidden", !visibleColumns.has(el.dataset.col));
+  });
+  document.querySelectorAll(".toggle").forEach(btn => {
+    const visible = visibleColumns.has(btn.dataset.col);
+    btn.classList.toggle("off", !visible);
+    btn.setAttribute("aria-pressed", visible ? "true" : "false");
+  });
   const input = document.getElementById("search");
   if (input?.value.trim()) runSearch(0);
 }
-function setupDevControls() {
-  const keys = MODE === "dev" ? DATA.defaults.devColumns : DATA.defaults.publicColumns;
-  document.getElementById("devControls").innerHTML = keys.map(key => `<button class="toggle" data-col="${key}">${COLUMNS[key]}</button>`).join("");
-  document.getElementById("devControls").addEventListener("click", ev => {
-    const btn = ev.target.closest(".toggle"); if (!btn) return;
-    visibleColumns.has(btn.dataset.col) ? visibleColumns.delete(btn.dataset.col) : visibleColumns.add(btn.dataset.col);
+function setupColumnControls() {
+  const controls = document.getElementById("devControls");
+  renderColumnControls();
+  controls.addEventListener("click", ev => {
+    const btn = ev.target.closest(".toggle"); if (!btn || suppressToggleClick) return;
+    const key = btn.dataset.col;
+    if (visibleColumns.has(key)) {
+      if (visibleColumns.size <= 1) return;
+      visibleColumns.delete(key);
+    } else {
+      visibleColumns.add(key);
+    }
     syncColumns();
+    updateColumnUrl();
+  });
+  controls.addEventListener("dragstart", ev => {
+    const btn = ev.target.closest(".toggle"); if (!btn) return;
+    draggedColumn = btn.dataset.col;
+    btn.classList.add("dragging");
+    ev.dataTransfer.effectAllowed = "move";
+    ev.dataTransfer.setData("text/plain", draggedColumn);
+  });
+  controls.addEventListener("dragover", ev => {
+    const btn = ev.target.closest(".toggle");
+    if (!btn || !draggedColumn || btn.dataset.col === draggedColumn) return;
+    ev.preventDefault();
+    btn.classList.add("drop-target");
+  });
+  controls.addEventListener("dragleave", ev => {
+    const btn = ev.target.closest(".toggle");
+    if (btn) btn.classList.remove("drop-target");
+  });
+  controls.addEventListener("drop", ev => {
+    const btn = ev.target.closest(".toggle");
+    if (!btn || !draggedColumn) return;
+    ev.preventDefault();
+    document.querySelectorAll(".drop-target").forEach(el => el.classList.remove("drop-target"));
+    if (moveColumn(draggedColumn, btn.dataset.col)) {
+      suppressToggleClick = true;
+      renderColumnControls();
+      syncColumns();
+      updateColumnUrl();
+      setTimeout(() => { suppressToggleClick = false; }, 0);
+    }
+  });
+  controls.addEventListener("dragend", () => {
+    draggedColumn = null;
+    document.querySelectorAll(".dragging,.drop-target").forEach(el => el.classList.remove("dragging", "drop-target"));
   });
   const passageCount = DATA.chapters.flatMap(ch => ch.passages).length;
   document.getElementById("devMeta").textContent = `Dev mode · ${passageCount} passages · ${Object.keys(DATA.lexicon || {}).length} Greek hover entries`;
@@ -291,7 +435,9 @@ function activateMatch() {
   setChapterCollapsed(el.closest(".chapter"), false);
   el.classList.add("search-active");
   el.scrollIntoView({block:"center", behavior:"smooth"});
-  history.replaceState(null, "", `#${el.id}`);
+  const url = new URL(location.href);
+  url.hash = el.id;
+  history.replaceState(null, "", url);
   updateMatchCount();
 }
 function updateMatchCount() {
@@ -384,7 +530,7 @@ document.addEventListener("click", ev => {
     submitFeedback(box);
   }
 });
-setupDevControls();
+setupColumnControls();
 render();
 setupSearch();
 </script>
