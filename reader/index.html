@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CpxnrT7B.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DIPFpqQV.css">
+    <script type="module" crossorigin src="./assets/index-NRxnV65B.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-RbmFEjdz.css">
   </head>
   <body>
     <div id="app">
@@ -63,9 +63,25 @@
           <div class="transport">
             <div class="transport-main" aria-label="Playback navigation">
               <button id="previousSectionButton" class="transport-button" type="button" title="Previous section" aria-label="Previous section" disabled><span class="transport-icon icon-skip-previous" aria-hidden="true"></span></button>
-              <button id="rewindButton" class="transport-button" type="button" title="Back 15 seconds" aria-label="Back 15 seconds" disabled><span class="transport-icon icon-seek icon-seek-back" aria-hidden="true"><span>15</span></span></button>
+              <button id="rewindButton" class="transport-button" type="button" title="Back 15 seconds" aria-label="Back 15 seconds" disabled>
+                <svg class="transport-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8 20h2a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-2v-3h3" />
+                  <path d="M15 18a6 6 0 1 0 0 -12h-11" />
+                  <path d="M5 14v6" />
+                  <path d="M7 9l-3 -3l3 -3" />
+                </svg>
+              </button>
               <button id="playbackToggleButton" class="transport-button primary" type="button" title="Play" aria-label="Play" aria-pressed="false" disabled><span class="transport-icon icon-playback" aria-hidden="true"></span></button>
-              <button id="forwardButton" class="transport-button" type="button" title="Forward 15 seconds" aria-label="Forward 15 seconds" disabled><span class="transport-icon icon-seek icon-seek-forward" aria-hidden="true"><span>15</span></span></button>
+              <button id="forwardButton" class="transport-button" type="button" title="Forward 15 seconds" aria-label="Forward 15 seconds" disabled>
+                <svg class="transport-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M17 9l3 -3l-3 -3" />
+                  <path d="M9 18a6 6 0 1 1 0 -12h11" />
+                  <path d="M16 20h2a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-2v-3h3" />
+                  <path d="M13 14v6" />
+                </svg>
+              </button>
               <button id="nextSectionButton" class="transport-button" type="button" title="Next section" aria-label="Next section" disabled><span class="transport-icon icon-skip-next" aria-hidden="true"></span></button>
             </div>
             <label class="scrub-control">
