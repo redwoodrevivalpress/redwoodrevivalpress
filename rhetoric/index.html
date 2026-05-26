@@ -56,7 +56,7 @@ main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
 .grid{display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:14px;align-items:start}
 .col{min-width:0}.col.hidden{display:none}.label{font:700 .66rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--redwood);margin:0 0 8px}
 .text{background:rgba(248,243,230,.56);border-left:2px solid rgba(176,125,42,.55);padding:12px 13px;min-height:92px}
-.source .text{font-size:1.08rem;line-height:1.72}.modernized .text,.modernizedV2 .text,.modernizedV3 .text{border-left-color:var(--redwood)}.canonical .text{border-left-color:var(--indigo)}
+.source .text{font-size:1.08rem;line-height:1.72}.modernized .text{border-left-color:var(--redwood)}.canonical .text{border-left-color:var(--indigo)}
 .quality{display:none;margin-top:8px;gap:6px;flex-wrap:wrap}.mode-dev .quality{display:flex}.pill{font:700 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(43,36,24,.35);padding:3px 6px;color:var(--ink-soft);background:rgba(248,243,230,.6)}
 .footnotes{margin:12px 0 0;padding:10px 12px;border-left:1px solid var(--rule);background:rgba(232,223,203,.42);font-size:.92rem;color:var(--ink-soft)}
 .col .footnotes{font-size:.86rem;background:rgba(232,223,203,.34)}
@@ -97,8 +97,6 @@ const COLUMNS = {
   finalLiteral: "Word-for-word translation",
   adapted: "Improved translation",
   modernized: "Modernization",
-  modernizedV2: "Modernization v2",
-  modernizedV3: "Modernization v3",
   canonical: DATA.book.canonicalLabel || "Freese 1926"
 };
 const COLUMN_ALIASES = {
@@ -108,8 +106,6 @@ const COLUMN_ALIASES = {
   literal: "finalLiteral", finalliteral: "finalLiteral", wordforword: "finalLiteral", wordforwordtranslation: "finalLiteral",
   adapted: "adapted", improved: "adapted", improvedtranslation: "adapted",
   modernized: "modernized", modernization: "modernized", modern: "modernized",
-  modernizedv2: "modernizedV2", modernizationv2: "modernizedV2", modernv2: "modernizedV2", v2: "modernizedV2",
-  modernizedv3: "modernizedV3", modernizationv3: "modernizedV3", modernv3: "modernizedV3", v3: "modernizedV3",
   canonical: "canonical", freese: "canonical", freese1926: "canonical"
 };
 function allowedColumnKeys() {
@@ -211,7 +207,7 @@ function renderPassage(p, chapter) {
   </article>`;
 }
 function columnFootnotes(p, key) {
-  const notes = key === "adapted" ? p.adaptedFootnotes : key === "modernized" ? p.modernizedFootnotes : key === "modernizedV2" ? p.modernizedV2Footnotes : key === "modernizedV3" ? p.modernizedV3Footnotes : [];
+  const notes = key === "adapted" ? p.adaptedFootnotes : key === "modernized" ? p.modernizedFootnotes : [];
   if (!notes || !notes.length) return "";
   return `<div class="footnotes">${notes.map(fn => `<div><span class="fn-num">${escapeHtml(fn.num)}</span>${escapeHtml(fn.text || "")}</div>`).join("")}</div>`;
 }
@@ -286,8 +282,6 @@ async function submitFeedback(box) {
       literal: p.finalLiteral || "",
       adapted: p.adapted || "",
       modernized: p.modernized || "",
-      modernized_v2: p.modernizedV2 || "",
-      modernized_v3: p.modernizedV3 || "",
       freese_1926: p.canonical || ""
     }
   };
