@@ -1,6 +1,12 @@
 {
   "books": [
     {
+      "id": "aristotle-rhetoric-book-1-sophie",
+      "title": "Aristotle's Rhetoric, Book I (Sophie readalong)",
+      "author": "Aristotle",
+      "href": "books/aristotle_rhetoric_book1_sophie_48k_readalong.epub"
+    },
+    {
       "id": "aristotle-rhetoric-book-1-craig",
       "title": "Aristotle's Rhetoric, Book I",
       "author": "Aristotle",
