@@ -31,7 +31,9 @@ a{color:inherit}
 h1{font-family:var(--display);font-weight:360;font-size:clamp(2.6rem,5vw,5.8rem);line-height:.93;letter-spacing:0;margin:0}
 .dek{font-size:1.15rem;max-width:680px;color:var(--ink-soft);margin:0}
 .tools{position:sticky;top:53px;z-index:18;background:rgba(232,223,203,.97);border-bottom:1px solid rgba(43,36,24,.22)}
-.tools-inner{max-width:1480px;margin:0 auto;padding:12px 28px;display:grid;grid-template-columns:minmax(260px,520px) auto 1fr;gap:12px;align-items:center}
+.tools-inner{max-width:1480px;margin:0 auto;padding:12px 28px;display:grid;grid-template-columns:minmax(260px,520px) auto minmax(180px,1fr) auto;gap:12px;align-items:center}
+.tools-closed{display:none;max-width:1480px;margin:0 auto;padding:8px 28px;justify-content:flex-end}
+.tools.collapsed .tools-inner{display:none}.tools.collapsed .tools-closed{display:flex}.tools.collapsed .dev-meta{display:none}
 .search{display:flex;align-items:center;border:1px solid var(--ink);background:var(--cream)}
 .search input{width:100%;border:0;background:transparent;padding:10px 12px;font:600 .88rem var(--sans);color:var(--ink);outline:none}
 .search-nav{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft)}
@@ -39,6 +41,7 @@ button{font-family:var(--sans);font-weight:700;border:1px solid var(--ink);backg
 button:hover:not(:disabled),button.active{background:var(--ink);color:var(--cream)}
 button:disabled{opacity:.35;cursor:default}
 .dev-controls{display:flex;justify-content:flex-end;gap:7px;flex-wrap:wrap}
+.tools-toggle{background:var(--cream);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .toggle{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;user-select:none}.toggle.off{opacity:.48;text-decoration:line-through}.toggle[draggable="true"]{cursor:grab}.toggle.dragging{opacity:.38}.toggle.drop-target{outline:2px solid var(--redwood);outline-offset:2px}
 .dev-meta{display:none;max-width:1480px;margin:0 auto;padding:8px 28px 0;font:500 .68rem var(--mono);letter-spacing:.08em;color:var(--ink-faint)}.mode-dev .dev-meta{display:block}
 main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
@@ -74,13 +77,13 @@ main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
 #tooltip .def{font-size:.94rem;color:#F2E7D1}
 .empty{padding:60px 0;color:var(--ink-soft);font-style:italic}
 footer{border-top:1px solid var(--ink);padding:28px;color:var(--ink-soft);font:500 .75rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
-@media(max-width:980px){.mast{grid-template-columns:1fr}.tools-inner{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.feedback-body{grid-template-columns:auto auto 1fr}.feedback .send{grid-column:1/-1}.tools{top:52px}}
+@media(max-width:980px){.mast{grid-template-columns:1fr}.tools-inner{grid-template-columns:1fr;padding:10px 14px}.tools-closed{padding:6px 14px}.dev-controls{justify-content:flex-start;max-height:38vh;overflow:auto}.tools-toggle{width:100%}.grid{grid-template-columns:1fr}.feedback-body{grid-template-columns:auto auto 1fr}.feedback .send{grid-column:1/-1}.tools{top:52px}main{padding-left:14px;padding-right:14px}.mast{padding-left:14px;padding-right:14px}.topbar-inner{padding-left:14px;padding-right:14px}}
 </style>
 </head>
 <body class="mode-public">
-<div class="topbar"><div class="topbar-inner"><a class="brand" href="../"><img src="../assets/logo-dark.png" alt=""><span>Redwood Revival Press</span></a><nav class="nav"><a href="../">Catalogue</a><a href="mailto:cyrus@redwoodrevivalpress.com">Contact</a></nav></div></div>
+<div class="topbar"><div class="topbar-inner"><a class="brand" href="../"><img src="../assets/logo-dark.png" alt=""><span>Redwood Revival Press</span></a><nav class="nav"><a href="../#catalogue">Catalogue</a><a href="../reader/">Reader</a><a href="../#about">About</a><a href="mailto:cyrus@redwoodrevivalpress.com">Contact</a></nav></div></div>
 <header class="mast"><div><p class="eyebrow">Translation Preview</p><h1>Aristotle's <em>Rhetoric.</em></h1></div><p class="dek">Greek source, transliteration, literal translation, adapted Redwood translation, modernized Redwood translation, and Freese 1926 aligned passage by passage.</p></header>
-<section class="tools"><div class="tools-inner"><div class="search"><input id="search" type="search" placeholder="Search passages" autocomplete="off"></div><div class="search-nav"><button id="prevMatch" aria-label="Previous match">↑</button><span id="matchCount">0 / 0</span><button id="nextMatch" aria-label="Next match">↓</button></div><div class="dev-controls" id="devControls"></div></div><div class="dev-meta" id="devMeta"></div></section>
+<section class="tools" id="tools"><div class="tools-inner" id="toolsPanel"><div class="search"><input id="search" type="search" placeholder="Search passages" autocomplete="off"></div><div class="search-nav"><button id="prevMatch" aria-label="Previous match">↑</button><span id="matchCount">0 / 0</span><button id="nextMatch" aria-label="Next match">↓</button></div><div class="dev-controls" id="devControls"></div><button class="tools-toggle" id="toolsHide" type="button" aria-expanded="true" aria-controls="toolsPanel">Hide tools</button></div><div class="tools-closed"><button class="tools-toggle" id="toolsShow" type="button" aria-expanded="false" aria-controls="toolsPanel">Show tools</button></div><div class="dev-meta" id="devMeta"></div></section>
 <main id="app"></main><div id="tooltip"></div>
 <footer>© 2026 Redwood Revival Press · Berkeley, California</footer>
 <script src="./rhetoric-translation-data.js"></script>
@@ -136,6 +139,7 @@ let matches = [];
 let matchIndex = -1;
 let draggedColumn = null;
 let suppressToggleClick = false;
+const TOOLS_STATE_KEY = "translation_explorer.tools_collapsed.v1";
 const escapeHtml = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const inlineTokenRe = /\{\{fnref:\d+:(\d+)\}\}|<\/?(?:em|strong)>/g;
 function formatInlineText(text) {
@@ -449,6 +453,35 @@ function setupSearch() {
   document.getElementById("nextMatch").addEventListener("click", () => runSearch(1));
   updateMatchCount();
 }
+function storedToolsCollapsed() {
+  try {
+    const value = localStorage.getItem(TOOLS_STATE_KEY);
+    if (value === "1") return true;
+    if (value === "0") return false;
+  } catch (err) {}
+  return window.matchMedia("(max-width: 980px)").matches;
+}
+function setToolsCollapsed(collapsed, persist = true) {
+  const tools = document.getElementById("tools");
+  const hide = document.getElementById("toolsHide");
+  const show = document.getElementById("toolsShow");
+  tools.classList.toggle("collapsed", collapsed);
+  hide.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  show.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  if (persist) {
+    try { localStorage.setItem(TOOLS_STATE_KEY, collapsed ? "1" : "0"); } catch (err) {}
+  }
+}
+function setupToolsToggle() {
+  const hide = document.getElementById("toolsHide");
+  const show = document.getElementById("toolsShow");
+  setToolsCollapsed(storedToolsCollapsed(), false);
+  hide.addEventListener("click", () => {
+    setToolsCollapsed(true);
+    try { show.focus({preventScroll:true}); } catch (err) { show.focus(); }
+  });
+  show.addEventListener("click", () => setToolsCollapsed(false));
+}
 function clearSearchHighlights(done = () => {}) {
   if (typeof window.Mark !== "function") { done(); return; }
   new Mark(document.querySelector("main")).unmark({
@@ -524,6 +557,7 @@ document.addEventListener("click", ev => {
     submitFeedback(box);
   }
 });
+setupToolsToggle();
 setupColumnControls();
 render();
 setupSearch();
