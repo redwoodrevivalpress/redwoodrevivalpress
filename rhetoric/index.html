@@ -31,17 +31,22 @@ a{color:inherit}
 h1{font-family:var(--display);font-weight:360;font-size:clamp(2.6rem,5vw,5.8rem);line-height:.93;letter-spacing:0;margin:0}
 .dek{font-size:1.15rem;max-width:680px;color:var(--ink-soft);margin:0}
 .tools{background:rgba(232,223,203,.97);border-bottom:1px solid rgba(43,36,24,.22)}
-.tools-inner{max-width:1480px;margin:0 auto;padding:12px 28px;display:grid;grid-template-columns:minmax(260px,520px) auto minmax(180px,1fr) auto;gap:12px;align-items:center}
+.tools.searching{position:sticky;top:var(--tools-sticky-top,53px);z-index:18}
+.tools-inner{max-width:1480px;margin:0 auto;padding:10px 28px;display:grid;grid-template-columns:minmax(150px,220px) minmax(240px,480px) auto minmax(0,1fr);gap:10px;align-items:center}
 .tools-closed{display:none;max-width:1480px;margin:0 auto;padding:8px 28px;justify-content:flex-end}
 .tools.collapsed .tools-inner{display:none}.tools.collapsed .tools-closed{display:flex}.tools.collapsed .dev-meta{display:none}
+.book-filter{display:flex;align-items:center;gap:8px;min-width:0}
+.book-filter label{font:700 .62rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.book-filter select{width:100%;min-width:0;border:1px solid var(--ink);background:var(--cream);color:var(--ink);padding:9px 28px 9px 10px;font:700 .78rem var(--sans);letter-spacing:.08em;text-transform:uppercase;border-radius:0}
 .search{display:flex;align-items:center;border:1px solid var(--ink);background:var(--cream)}
 .search input{width:100%;border:0;background:transparent;padding:10px 12px;font:600 .88rem var(--sans);color:var(--ink);outline:none}
 .search-nav{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft)}
 button{font-family:var(--sans);font-weight:700;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px 10px;cursor:pointer}
 button:hover:not(:disabled),button.active{background:var(--ink);color:var(--cream)}
 button:disabled{opacity:.35;cursor:default}
-.dev-controls{display:flex;justify-content:flex-end;gap:7px;flex-wrap:wrap}
-.tools-toggle{background:var(--cream);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.tools-actions{display:flex;align-items:center;justify-content:flex-end;gap:7px;min-width:0}
+.dev-controls{display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;min-width:0}
+.tools-toggle{background:transparent;border-color:rgba(43,36,24,.34);color:var(--ink-soft);font-size:.62rem;letter-spacing:.08em;line-height:1;text-transform:uppercase;white-space:nowrap;padding:5px 7px}
 .toggle{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;user-select:none}.toggle.off{opacity:.48;text-decoration:line-through}.toggle[draggable="true"]{cursor:grab}.toggle.dragging{opacity:.38}.toggle.drop-target{outline:2px solid var(--redwood);outline-offset:2px}
 .dev-meta{display:none;max-width:1480px;margin:0 auto;padding:8px 28px 0;font:500 .68rem var(--mono);letter-spacing:.08em;color:var(--ink-faint)}.mode-dev .dev-meta{display:block}
 main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
@@ -59,7 +64,7 @@ main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
 .grid{display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:14px;align-items:start}
 .col{min-width:0}.col.hidden{display:none}.label{font:700 .66rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--redwood);margin:0 0 8px}
 .text{background:rgba(248,243,230,.56);border-left:2px solid rgba(176,125,42,.55);padding:12px 13px;min-height:92px}
-.source .text{font-size:1.08rem;line-height:1.72}.modernized .text{border-left-color:var(--redwood)}.canonical .text{border-left-color:var(--indigo)}
+.source .text{font-size:1.08rem;line-height:1.72}.sourceTransliteration .text{font-size:.98rem;line-height:1.68;color:var(--ink-soft)}.modernized .text{border-left-color:var(--redwood)}.canonical .text{border-left-color:var(--indigo)}
 .quality{display:none;margin-top:8px;gap:6px;flex-wrap:wrap}.mode-dev .quality{display:flex}.pill{font:700 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(43,36,24,.35);padding:3px 6px;color:var(--ink-soft);background:rgba(248,243,230,.6)}
 .footnotes{margin:12px 0 0;padding:10px 12px;border-left:1px solid var(--rule);background:rgba(232,223,203,.42);font-size:.92rem;color:var(--ink-soft)}
 .col .footnotes{font-size:.86rem;background:rgba(232,223,203,.34)}
@@ -77,13 +82,13 @@ main{max-width:1480px;margin:0 auto;padding:24px 28px 72px}
 #tooltip .def{font-size:.94rem;color:#F2E7D1}
 .empty{padding:60px 0;color:var(--ink-soft);font-style:italic}
 footer{border-top:1px solid var(--ink);padding:28px;color:var(--ink-soft);font:500 .75rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
-@media(max-width:980px){.mast{grid-template-columns:1fr}.tools-inner{grid-template-columns:1fr;padding:10px 14px}.tools-closed{padding:6px 14px}.dev-controls{justify-content:flex-start;max-height:38vh;overflow:auto}.tools-toggle{width:100%}.grid{grid-template-columns:1fr}.feedback-body{grid-template-columns:auto auto 1fr}.feedback .send{grid-column:1/-1}main{padding-left:14px;padding-right:14px}.mast{padding-left:14px;padding-right:14px}.topbar-inner{padding-left:14px;padding-right:14px}}
+@media(max-width:980px){.mast{grid-template-columns:1fr}.tools-inner{grid-template-columns:minmax(0,1fr) auto;padding:8px 14px;gap:8px}.book-filter{grid-column:1/-1}.search{grid-column:1/-1}.search-nav{grid-column:1;grid-row:3}.tools-actions{display:contents}.tools-toggle{grid-column:2;grid-row:3;align-self:center;justify-self:end}.dev-controls{grid-column:1/-1;grid-row:4;justify-content:flex-start;max-height:32vh;overflow:auto}.tools-closed{padding:6px 14px}.grid{grid-template-columns:1fr}.feedback-body{grid-template-columns:auto auto 1fr}.feedback .send{grid-column:1/-1}main{padding-left:14px;padding-right:14px}.mast{padding-left:14px;padding-right:14px}.topbar-inner{padding-left:14px;padding-right:14px}}
 </style>
 </head>
 <body class="mode-public">
 <div class="topbar"><div class="topbar-inner"><a class="brand" href="../"><img src="../assets/logo-dark.png" alt=""><span>Redwood Revival Press</span></a><nav class="nav"><a href="../#catalogue">Catalogue</a><a href="../reader/">Reader</a><a href="../#about">About</a><a href="mailto:cyrus@redwoodrevivalpress.com">Contact</a></nav></div></div>
-<header class="mast"><div><p class="eyebrow">Translation Preview</p><h1>Aristotle's <em>Rhetoric.</em></h1></div><p class="dek">Greek source, transliteration, literal translation, adapted Redwood translation, modernized Redwood translation, and Freese 1926 aligned passage by passage.</p></header>
-<section class="tools" id="tools"><div class="tools-inner" id="toolsPanel"><div class="search"><input id="search" type="search" placeholder="Search passages" autocomplete="off"></div><div class="search-nav"><button id="prevMatch" aria-label="Previous match">↑</button><span id="matchCount">0 / 0</span><button id="nextMatch" aria-label="Next match">↓</button></div><div class="dev-controls" id="devControls"></div><button class="tools-toggle" id="toolsHide" type="button" aria-expanded="true" aria-controls="toolsPanel">Hide tools</button></div><div class="tools-closed"><button class="tools-toggle" id="toolsShow" type="button" aria-expanded="false" aria-controls="toolsPanel">Show tools</button></div><div class="dev-meta" id="devMeta"></div></section>
+<header class="mast"><div><p class="eyebrow">Translation Preview</p><h1>Aristotle's <em>Rhetoric.</em></h1></div><p class="dek">Greek source, literal translation, adapted Redwood translation, modernized Redwood translation, and Freese 1926 aligned passage by passage.</p></header>
+<section class="tools" id="tools"><div class="tools-inner" id="toolsPanel"><div class="book-filter"><label for="bookSelect">Book</label><select id="bookSelect" aria-label="Book"></select></div><div class="search"><input id="search" type="search" placeholder="Search passages" autocomplete="off"></div><div class="search-nav"><button id="prevMatch" aria-label="Previous match">↑</button><span id="matchCount">0 / 0</span><button id="nextMatch" aria-label="Next match">↓</button></div><div class="tools-actions"><div class="dev-controls" id="devControls"></div><button class="tools-toggle" id="toolsHide" type="button" aria-expanded="true" aria-controls="toolsPanel">Hide</button></div></div><div class="tools-closed"><button class="tools-toggle" id="toolsShow" type="button" aria-expanded="false" aria-controls="toolsPanel">Show</button></div><div class="dev-meta" id="devMeta"></div></section>
 <main id="app"></main><div id="tooltip"></div>
 <footer>© 2026 Redwood Revival Press · Berkeley, California</footer>
 <script src="./rhetoric-translation-data.js"></script>
@@ -95,7 +100,7 @@ const MODE = params.get("mode") === "dev" || params.get("dev") === "1" ? "dev" :
 document.body.className = MODE === "dev" ? "mode-dev" : "mode-public";
 const COLUMNS = {
   source: "Source",
-  sourceTransliteration: "Transliteration",
+  sourceTransliteration: "Transliterated Greek",
   draftLiteral: "Draft literal",
   finalLiteral: "Word-for-word translation",
   adapted: "Improved translation",
@@ -104,7 +109,7 @@ const COLUMNS = {
 };
 const COLUMN_ALIASES = {
   source: "source", greek: "source", original: "source",
-  sourcetransliteration: "sourceTransliteration", transliteration: "sourceTransliteration", transliterated: "sourceTransliteration", translit: "sourceTransliteration", latin: "sourceTransliteration",
+  sourcetransliteration: "sourceTransliteration", transliteration: "sourceTransliteration", transliterated: "sourceTransliteration", transliteratedgreek: "sourceTransliteration", translit: "sourceTransliteration", latin: "sourceTransliteration",
   draft: "draftLiteral", draftliteral: "draftLiteral", drafttranslation: "draftLiteral",
   literal: "finalLiteral", finalliteral: "finalLiteral", wordforword: "finalLiteral", wordforwordtranslation: "finalLiteral",
   adapted: "adapted", improved: "adapted", improvedtranslation: "adapted",
@@ -140,6 +145,12 @@ let matchIndex = -1;
 let draggedColumn = null;
 let suppressToggleClick = false;
 const TOOLS_STATE_KEY = "translation_explorer.tools_collapsed.v1";
+const ALL_BOOKS = "all";
+const BOOKS = Array.isArray(DATA.books) && DATA.books.length
+  ? DATA.books
+  : [...new Set(DATA.chapters.map(ch => ch.bookNumber).filter(Boolean))]
+      .map(number => ({id: `book-${number}`, number, label: `Book ${number}`}));
+let selectedBook = bookFromUrl();
 const escapeHtml = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const inlineTokenRe = /\{\{fnref:\d+:(\d+)\}\}|<\/?(?:em|strong)>/g;
 function formatInlineText(text) {
@@ -181,18 +192,31 @@ function tokenizeTransliteration(source, text) {
 }
 function render() {
   const app = document.getElementById("app");
-  if (!DATA.chapters.length) { app.innerHTML = `<div class="empty">No modernized passages available.</div>`; return; }
-  app.innerHTML = DATA.chapters.map((ch, ci) => `
+  const chapters = visibleChapters();
+  if (!chapters.length) { app.innerHTML = `<div class="empty">No modernized passages available.</div>`; return; }
+  app.innerHTML = chapters.map((ch, ci) => `
     <section class="chapter collapsed" id="${escapeHtml(ch.id)}">
       <div class="chapter-head">
-        <div class="chapter-num">Section ${escapeHtml(ch.sectionNumber || ci + 1)}</div>
+        <div class="chapter-num">${escapeHtml(chapterDisplayLabel(ch, ci))}</div>
         <h2>${escapeHtml(ch.title)}</h2>
-        <button class="chapter-toggle" aria-expanded="false" aria-controls="${escapeHtml(ch.id)}-body" aria-label="Expand section" title="Expand section">+</button>
+        <button class="chapter-toggle" aria-expanded="false" aria-controls="${escapeHtml(ch.id)}-body" aria-label="Expand chapter" title="Expand chapter">+</button>
       </div>
       <div class="chapter-body" id="${escapeHtml(ch.id)}-body">${ch.passages.map(p => renderPassage(p, ch)).join("")}</div>
     </section>`).join("");
   passageEls = [...document.querySelectorAll(".passage")];
   syncColumns();
+  updateDevMeta();
+}
+function visibleChapters() {
+  if (selectedBook === ALL_BOOKS) return DATA.chapters;
+  const selected = BOOKS.find(book => book.id === selectedBook || book.number === selectedBook);
+  const number = selected?.number || selectedBook.replace(/^book-/, "");
+  return DATA.chapters.filter(ch => String(ch.bookNumber || "") === String(number));
+}
+function chapterDisplayLabel(ch, index) {
+  const chapter = ch.chapterNumber || ch.sectionNumber || index + 1;
+  if (selectedBook === ALL_BOOKS && ch.bookNumber) return `Book ${ch.bookNumber} · Chapter ${chapter}`;
+  return `Chapter ${chapter}`;
 }
 function orderedVisibleColumns() {
   return columnOrder.filter(key => visibleColumns.has(key));
@@ -218,7 +242,7 @@ function columnFootnotes(p, key) {
 function searchTextFor(p, chapter) {
   const keys = MODE === "dev" ? Object.keys(COLUMNS) : DATA.defaults.publicColumns;
   const footnotes = (p.footnotes || []).map(fn => fn.text || "").join(" ");
-  return [chapter.title, p.id, ...keys.map(key => p[key] || ""), footnotes].join(" ").toLowerCase();
+  return [chapter.chapterLabel, chapter.title, p.id, ...keys.map(key => p[key] || ""), footnotes].join(" ").toLowerCase();
 }
 function qualityPills(j) {
   return [
@@ -257,7 +281,7 @@ async function submitFeedback(box) {
     status.textContent = "Not configured";
     return;
   }
-  const p = DATA.chapters.flatMap(ch => ch.passages).find(x => x.id === box.dataset.feedback);
+  const p = allPassages().find(x => x.id === box.dataset.feedback);
   const chapter = DATA.chapters.find(ch => ch.passages.some(x => x.id === box.dataset.feedback));
   const voteValue = box.dataset.vote || "unspecified";
   const note = box.querySelector("textarea").value.trim();
@@ -280,6 +304,10 @@ async function submitFeedback(box) {
     context: {
       version,
       section_title: chapter?.title || "",
+      chapter_title: chapter?.title || "",
+      chapter_label: chapter?.chapterLabel || "",
+      book_number: chapter?.bookNumber || "",
+      chapter_number: chapter?.chapterNumber || "",
       visible_columns: orderedVisibleColumns(),
       source: p.source || "",
       source_transliteration: p.sourceTransliteration || "",
@@ -311,6 +339,42 @@ async function submitFeedback(box) {
   } finally {
     send.disabled = false;
   }
+}
+function allPassages() {
+  return DATA.chapters.flatMap(ch => ch.passages);
+}
+function bookFromUrl() {
+  const raw = params.get("book") || ALL_BOOKS;
+  if (raw === ALL_BOOKS) return ALL_BOOKS;
+  const normalized = raw.toLowerCase().replace(/^book-/, "");
+  const match = BOOKS.find(book => (
+    book.id === raw || String(book.number).toLowerCase() === normalized
+  ));
+  return match ? match.id : ALL_BOOKS;
+}
+function setupBookSelect() {
+  const select = document.getElementById("bookSelect");
+  select.innerHTML = [
+    `<option value="${ALL_BOOKS}">All books</option>`,
+    ...BOOKS.map(book => `<option value="${escapeHtml(book.id)}">${escapeHtml(book.label)}</option>`)
+  ].join("");
+  select.value = selectedBook;
+  select.addEventListener("change", () => {
+    selectedBook = select.value || ALL_BOOKS;
+    updateBookUrl();
+    render();
+    const input = document.getElementById("search");
+    if (input?.value.trim()) runSearch(0, false);
+  });
+}
+function updateBookUrl() {
+  const url = new URL(location.href);
+  if (selectedBook === ALL_BOOKS) url.searchParams.delete("book");
+  else {
+    const book = BOOKS.find(item => item.id === selectedBook);
+    url.searchParams.set("book", book?.number || selectedBook);
+  }
+  history.replaceState(null, "", url);
 }
 function columnUrlValue() {
   return orderedVisibleColumns().join(",");
@@ -352,7 +416,7 @@ function syncColumns() {
     btn.setAttribute("aria-pressed", visible ? "true" : "false");
   });
   const input = document.getElementById("search");
-  if (input?.value.trim()) runSearch(0);
+  if (input?.value.trim()) runSearch(0, false);
 }
 function setupColumnControls() {
   const controls = document.getElementById("devControls");
@@ -403,11 +467,16 @@ function setupColumnControls() {
     draggedColumn = null;
     document.querySelectorAll(".dragging,.drop-target").forEach(el => el.classList.remove("dragging", "drop-target"));
   });
-  const passageCount = DATA.chapters.flatMap(ch => ch.passages).length;
-  document.getElementById("devMeta").textContent = `Dev mode · ${passageCount} passages · ${Object.keys(DATA.lexicon || {}).length} Greek hover entries`;
+  updateDevMeta();
 }
-function runSearch(step = 0) {
+function updateDevMeta() {
+  const visiblePassageCount = visibleChapters().flatMap(ch => ch.passages).length;
+  const totalPassageCount = allPassages().length;
+  document.getElementById("devMeta").textContent = `Dev mode · ${visiblePassageCount}/${totalPassageCount} passages · ${Object.keys(DATA.lexicon || {}).length} Greek hover entries`;
+}
+function runSearch(step = 0, navigate = true) {
   const q = document.getElementById("search").value.trim().toLowerCase();
+  setToolsSearching(Boolean(q));
   clearSearchHighlights(() => {
     passageEls.forEach(el => el.classList.remove("search-active"));
     if (!q) { matches = []; matchIndex = -1; updateMatchCount(); return; }
@@ -415,14 +484,16 @@ function runSearch(step = 0) {
       matches = passageEls.filter(el => el.dataset.search.includes(q));
       if (!matches.length) { matchIndex = -1; updateMatchCount(); return; }
       matchIndex = step === 0 ? 0 : (matchIndex + step + matches.length) % matches.length;
-      activateMatch();
+      if (navigate) activateMatch();
+      else updateMatchCount();
       return;
     }
     applySearchHighlights(q, () => {
       matches = collectHighlightedPassages();
       if (!matches.length) { matchIndex = -1; updateMatchCount(); return; }
       matchIndex = step === 0 ? 0 : (matchIndex + step + matches.length) % matches.length;
-      activateMatch();
+      if (navigate) activateMatch();
+      else updateMatchCount();
     });
   });
 }
@@ -445,13 +516,23 @@ function updateMatchCount() {
 }
 function setupSearch() {
   const input = document.getElementById("search");
-  input.addEventListener("input", () => runSearch(0));
+  syncToolsStickyTop();
+  input.addEventListener("input", () => runSearch(0, false));
   input.addEventListener("keydown", ev => {
-    if (ev.key === "Enter") { ev.preventDefault(); runSearch(ev.shiftKey ? -1 : 1); }
+    if (ev.key === "Enter") { ev.preventDefault(); runSearch(ev.shiftKey ? -1 : 1, true); }
   });
-  document.getElementById("prevMatch").addEventListener("click", () => runSearch(-1));
-  document.getElementById("nextMatch").addEventListener("click", () => runSearch(1));
+  document.getElementById("prevMatch").addEventListener("click", () => runSearch(-1, true));
+  document.getElementById("nextMatch").addEventListener("click", () => runSearch(1, true));
+  window.addEventListener("resize", syncToolsStickyTop);
   updateMatchCount();
+}
+function syncToolsStickyTop() {
+  const topbar = document.querySelector(".topbar");
+  document.documentElement.style.setProperty("--tools-sticky-top", `${topbar?.offsetHeight || 0}px`);
+}
+function setToolsSearching(active) {
+  syncToolsStickyTop();
+  document.getElementById("tools").classList.toggle("searching", active);
 }
 function storedToolsCollapsed() {
   try {
@@ -519,8 +600,8 @@ function setChapterCollapsed(chapter, collapsed) {
   if (!button) return;
   button.textContent = collapsed ? "+" : "−";
   button.setAttribute("aria-expanded", collapsed ? "false" : "true");
-  button.setAttribute("aria-label", collapsed ? "Expand section" : "Collapse section");
-  button.setAttribute("title", collapsed ? "Expand section" : "Collapse section");
+  button.setAttribute("aria-label", collapsed ? "Expand chapter" : "Collapse chapter");
+  button.setAttribute("title", collapsed ? "Expand chapter" : "Collapse chapter");
 }
 function showTip(word, target) {
   const entry = DATA.lexicon[word];
@@ -558,6 +639,7 @@ document.addEventListener("click", ev => {
   }
 });
 setupToolsToggle();
+setupBookSelect();
 setupColumnControls();
 render();
 setupSearch();
