@@ -91,7 +91,7 @@ footer{border-top:1px solid var(--ink);padding:28px;color:var(--ink-soft);font:5
 <section class="tools" id="tools"><div class="tools-inner" id="toolsPanel"><div class="book-filter"><label for="bookSelect">Book</label><select id="bookSelect" aria-label="Book"></select></div><div class="search"><input id="search" type="search" placeholder="Search passages" autocomplete="off"></div><div class="search-nav"><button id="prevMatch" aria-label="Previous match">↑</button><span id="matchCount">0 / 0</span><button id="nextMatch" aria-label="Next match">↓</button></div><div class="tools-actions"><div class="dev-controls" id="devControls"></div><button class="tools-toggle" id="toolsHide" type="button" aria-expanded="true" aria-controls="toolsPanel">Hide</button></div></div><div class="tools-closed"><button class="tools-toggle" id="toolsShow" type="button" aria-expanded="false" aria-controls="toolsPanel">Show</button></div><div class="dev-meta" id="devMeta"></div></section>
 <main id="app"></main><div id="tooltip"></div>
 <footer>© 2026 Redwood Revival Press · Berkeley, California</footer>
-<script src="./rhetoric-translation-data.js"></script>
+<script src="./rhetoric-translation-data.js?v=rhetoric-full-modernization-v2-books1-3"></script>
 <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 <script>
 const DATA = window.RHETORIC_TRANSLATION_DATA;
@@ -102,7 +102,7 @@ const COLUMNS = {
   source: "Source",
   sourceTransliteration: "Transliterated Greek",
   draftLiteral: "Draft literal",
-  finalLiteral: "Word-for-word translation",
+  finalLiteral: "Literal translation",
   adapted: "Improved translation",
   modernized: "Modernization",
   canonical: DATA.book.canonicalLabel || "Freese 1926"
