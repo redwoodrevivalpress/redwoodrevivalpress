@@ -1,16 +1,22 @@
 {
   "books": [
     {
-      "id": "aristotle-rhetoric-book-1-sophie",
-      "title": "Rhetoric, v2 modernization",
+      "id": "aristotle-rhetoric-v2-book-1-sophie",
+      "title": "Rhetoric, v2 modernization: Book 1",
       "author": "Aristotle",
-      "href": "books/aristotle_rhetoric_book1_sophie_48k_readalong.epub?v=full-v2-20260526"
+      "href": "books/aristotle_rhetoric_modernization_v2_book1_48k_sophie_0_9_readalong.epub?v=v2-books-20260526"
     },
     {
-      "id": "aristotle-rhetoric-book-1-craig",
-      "title": "Rhetoric, v0 rough draft",
+      "id": "aristotle-rhetoric-v2-book-2-sophie",
+      "title": "Rhetoric, v2 modernization: Book 2",
       "author": "Aristotle",
-      "href": "books/aristotle_rhetoric_book1_craig_0_9_readalong.epub"
+      "href": "books/aristotle_rhetoric_modernization_v2_book2_64k_sophie_0_9_readalong.epub?v=v2-books-20260526"
+    },
+    {
+      "id": "aristotle-rhetoric-v2-book-3-sophie",
+      "title": "Rhetoric, v2 modernization: Book 3",
+      "author": "Aristotle",
+      "href": "books/aristotle_rhetoric_modernization_v2_book3_64k_sophie_0_9_readalong.epub?v=v2-books-20260526"
     }
   ]
 }
