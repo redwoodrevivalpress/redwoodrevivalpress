@@ -1,22 +1,40 @@
 {
   "books": [
     {
-      "id": "aristotle-rhetoric-v2-book-1-sophie",
-      "title": "Rhetoric, v2 modernization: Book 1",
+      "id": "aristotle-rhetoric-modernization-v2-book-1-sophie",
+      "title": "Rhetoric, modernization v2: Book 1",
       "author": "Aristotle",
-      "href": "books/aristotle_rhetoric_modernization_v2_book1_48k_sophie_0_9_readalong.epub?v=v2-books-20260526"
+      "href": "books/aristotle_rhetoric_modernization_v2_book1_48k_sophie_0_9_readalong.epub?v=v2-modernized-full-20260527"
     },
     {
-      "id": "aristotle-rhetoric-v2-book-2-sophie",
-      "title": "Rhetoric, v2 modernization: Book 2",
+      "id": "aristotle-rhetoric-modernization-v2-book-2-sophie",
+      "title": "Rhetoric, modernization v2: Book 2",
       "author": "Aristotle",
-      "href": "books/aristotle_rhetoric_modernization_v2_book2_64k_sophie_0_9_readalong.epub?v=v2-books-20260526"
+      "href": "books/aristotle_rhetoric_modernization_v2_book2_48k_sophie_0_9_readalong.epub?v=v2-modernized-full-20260527-48k"
     },
     {
-      "id": "aristotle-rhetoric-v2-book-3-sophie",
-      "title": "Rhetoric, v2 modernization: Book 3",
+      "id": "aristotle-rhetoric-modernization-v2-book-3-sophie",
+      "title": "Rhetoric, modernization v2: Book 3",
       "author": "Aristotle",
-      "href": "books/aristotle_rhetoric_modernization_v2_book3_64k_sophie_0_9_readalong.epub?v=v2-books-20260526"
+      "href": "books/aristotle_rhetoric_modernization_v2_book3_64k_sophie_0_9_readalong.epub?v=v2-modernized-full-20260527"
+    },
+    {
+      "id": "aristotle-rhetoric-improved-translation-book-1-sophie",
+      "title": "Rhetoric, improved translation: Book 1",
+      "author": "Aristotle",
+      "href": "books/aristotle_rhetoric_improved_translation_book1_64k_sophie_0_9_readalong.epub?v=improved-full-20260527"
+    },
+    {
+      "id": "aristotle-rhetoric-improved-translation-book-2-sophie",
+      "title": "Rhetoric, improved translation: Book 2",
+      "author": "Aristotle",
+      "href": "books/aristotle_rhetoric_improved_translation_book2_64k_sophie_0_9_readalong.epub?v=improved-full-20260527"
+    },
+    {
+      "id": "aristotle-rhetoric-improved-translation-book-3-sophie",
+      "title": "Rhetoric, improved translation: Book 3",
+      "author": "Aristotle",
+      "href": "books/aristotle_rhetoric_improved_translation_book3_64k_sophie_0_9_readalong.epub?v=improved-full-20260527"
     }
   ]
 }
