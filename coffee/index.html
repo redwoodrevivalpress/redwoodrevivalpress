@@ -86,6 +86,57 @@
     padding: 0 32px;
   }
 
+  /* ─── Main site header ──────────────────────────────── */
+
+  .topbar {
+    position: relative;
+    z-index: 2;
+    background: var(--paper);
+    border-bottom: 0.5px solid var(--ink);
+  }
+  .topbar-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 12px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .topbar-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+  }
+  .topbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  .topbar a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .topbar a:hover { color: var(--rust); }
+
   /* ─── Typography ─────────────────────────────────────── */
 
   .display {
@@ -594,6 +645,17 @@
   @media (max-width: 900px) {
     body { font-size: 17px; }
     main { padding: 0 22px; }
+    .topbar-inner {
+      padding: 10px 22px;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .topbar-nav {
+      justify-content: flex-start;
+      gap: 10px 16px;
+      font-size: 0.68rem;
+    }
     .hero { grid-template-columns: 1fr; gap: 24px; }
     .hero .contents ol { columns: 1; }
     .panel {
@@ -619,6 +681,21 @@
 </style>
 </head>
 <body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="../">
+      <img class="topbar-logo" src="../assets/logo-dark.png" alt="" width="28" height="28">
+      <span>Redwood Revival Press</span>
+    </a>
+    <nav class="topbar-nav" aria-label="Main navigation">
+      <a href="../#catalogue">Catalogue</a>
+      <a href="../reader/">Reader</a>
+      <a href="../#about">About</a>
+      <a href="mailto:cyrus@redwoodrevivalpress.com">Contact</a>
+    </nav>
+  </div>
+</div>
 
 <main>
 
